@@ -27,3 +27,5 @@ A részletes telepítési és használati útmutató megtalálható a projekt do
     Backend programozás és tesztelés: jegy szám (jegy leírva) százalék
 
 ```
+
+// Edit src/App.js
