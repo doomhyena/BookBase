@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 const Search = () => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
@@ -19,31 +20,29 @@ const Search = () => {
     };
 
     return (
-        <div style={{ maxWidth: 600, margin: '40px auto', padding: 20, background: 'rgba(255,255,255,0.95)', borderRadius: 12, boxShadow: '0 2px 16px #ffb347' }}>
-            <h2 style={{ color: '#ff6f61', fontFamily: 'sans-serif', fontWeight: 700 }}>Könyv keresése</h2>
-            <form onSubmit={handleSearch} style={{ marginBottom: 20 }}>
+        <>
+            <h2 className="text-2xl font-bold text-blue-700 mb-6 text-center mt-10">Könyv keresése</h2>
+            <form onSubmit={handleSearch} className="flex gap-2 mb-6 max-w-xl mx-auto">
                 <input
                     type="text"
                     value={query}
                     onChange={e => setQuery(e.target.value)}
                     placeholder="Keresés könyv címére, szerzőre..."
-                    style={{ width: '70%', padding: 8, fontSize: 16 }}
+                    className="flex-1 px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none text-base"
                 />
-                <button type="submit" style={{ padding: '8px 16px', marginLeft: 8, background: 'linear-gradient(90deg, #ff6f61 0%, #ffb347 100%)', color: '#fff', border: 'none', borderRadius: 6, fontWeight: 600 }}>
-                    Keresés
-                </button>
+                <button type="submit" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow transition-colors">Keresés</button>
             </form>
-            {loading && <div style={{ color: '#ff6f61', fontWeight: 500 }}>Keresés folyamatban...</div>}
-            <ul>
-                {results.length === 0 && !loading && <li style={{ color: '#ff6f61', fontWeight: 500 }}>Nincs találat.</li>}
+            {loading && <div className="text-blue-600 font-semibold mb-4 text-center">Keresés folyamatban...</div>}
+            <ul className="divide-y divide-gray-200 max-w-xl mx-auto bg-white rounded-2xl shadow-lg p-6">
+                {results.length === 0 && !loading && <li className="py-3 text-gray-500">Nincs találat.</li>}
                 {results.map(book => (
-                    <li key={book.id} style={{ marginBottom: 12 }}>
-                        <strong style={{ color: '#ff6f61' }}>{book.title}</strong> – <span style={{ color: '#ffb347' }}>{book.author}</span><br />
-                        <span style={{ color: '#4a5568' }}>{book.description || 'Nincs leírás.'}</span>
+                    <li key={book.id} className="py-3">
+                        <strong className="text-blue-700 font-semibold text-base">{book.title}</strong> – <span className="text-gray-500 text-sm">{book.author}</span><br />
+                        <span className="text-gray-500 text-sm">{book.description || 'Nincs leírás.'}</span>
                     </li>
                 ))}
             </ul>
-        </div>
+        </>
     );
 };
 
