@@ -1,75 +1,152 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 
-
-// Mock adatbázis
-const books = [
-  {
-    id: '1',
-    title: 'A Gyűrűk Ura',
-    author: 'J.R.R. Tolkien',
-    volume: '1-3',
-    publishDate: '1954',
-    translator: 'Göncz Árpád',
-    publisher: 'Európa Könyvkiadó',
-    uploadedAt: '2024-05-01',
-    coverUrl: 'https://m.media-amazon.com/images/I/81t2CVWEsUL.jpg',
-  },
-  {
-    id: '2',
-    title: '1984',
-    author: 'George Orwell',
-    volume: '',
-    publishDate: '1949',
-    translator: 'Szíjgyártó László',
-    publisher: 'Európa Könyvkiadó',
-    uploadedAt: '2024-05-02',
-    coverUrl: 'https://m.media-amazon.com/images/I/71kxa1-0mfL.jpg',
-  },
-  // ... további könyvek
-];
-
-const placeholderCover = 'https://via.placeholder.com/160x240?text=No+Cover';
-
-function BookDetails() {
+export default function BookDetails() {
   const { id } = useParams();
-  const book = books.find(b => b.id === id);
+  const [book, setBook] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [rating, setRating] = useState(0);
+  const [userRating, setUserRating] = useState(0);
+
+  useEffect(() => {
+    const fetchBookDetails = async () => {
+      try {
+        const response = await fetch(`/api/books.php?action=getById&id=${id}`);
+        const data = await response.json();
+        
+        if (data.success) {
+          setBook(data.book);
+          setRating(data.book.atlag_ertekeles || 0);
+        }
+      } catch (error) {
+        console.error('Hiba a könyv betöltésekor:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBookDetails();
+  }, [id]);
+
+  const handleRating = async (newRating) => {
+    try {
+      const response = await fetch('/api/ratings.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          book_id: id,
+          rating: newRating
+        })
+      });
+      
+      const data = await response.json();
+      if (data.success) {
+        setUserRating(newRating);
+        // Frissítjük az átlagos értékelést
+        if (book) {
+          const newAvg = ((book.atlag_ertekeles * book.ertekelesek_szama + newRating) / (book.ertekelesek_szama + 1));
+          setRating(Math.round(newAvg * 10) / 10);
+        }
+      }
+    } catch (error) {
+      console.error('Hiba az értékelés küldésekor:', error);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-50 to-blue-200 py-10 px-2 md:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="text-2xl text-blue-700">Betöltés...</div>
+        </div>
+      </div>
+    );
+  }
 
   if (!book) {
     return (
-      <>
-        <div className="flex-shrink-0 w-40 h-60 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden mx-auto mt-10">
-          <img src={placeholderCover} alt="Nincs borító" className="object-cover w-full h-full" />
+      <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-50 to-blue-200 py-10 px-2 md:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="text-2xl text-red-700 mb-4">A könyv nem található!</div>
+          <Link to="/" className="text-blue-600 hover:underline">Vissza a főoldalra</Link>
         </div>
-        <div className="flex flex-col gap-2 justify-center max-w-2xl mx-auto mt-4 bg-white rounded-2xl shadow-lg p-8">
-          <h2 className="text-xl font-bold text-blue-700 mb-2">—</h2>
-          <div><b>Szerző:</b> —</div>
-          <div><b>Kötetszám:</b> —</div>
-          <div><b>Kiadás dátuma:</b> —</div>
-          <div><b>Fordító:</b> —</div>
-          <div><b>Kiadó:</b> —</div>
-          <div><b>Feltöltés dátuma:</b> —</div>
-        </div>
-      </>
+      </div>
     );
   }
 
   return (
-    <>
-      <div className="flex-shrink-0 w-40 h-60 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden mx-auto mt-10">
-        <img src={book.coverUrl} alt={book.title + ' borító'} className="object-cover w-full h-full" />
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-50 to-blue-200 py-10 px-2 md:px-8">
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-white/90 rounded-3xl shadow-2xl p-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Borítókép */}
+            <div className="md:col-span-1">
+              {book.cover ? (
+                <img 
+                  src={book.cover} 
+                  alt={`${book.title} borítókép`} 
+                  className="w-full rounded-2xl shadow-lg"
+                />
+              ) : (
+                <div className="w-full h-64 bg-gray-200 rounded-2xl flex items-center justify-center">
+                  <span className="text-gray-500">Nincs borítókép</span>
+                </div>
+              )}
+            </div>
+            
+            {/* Könyv adatok */}
+            <div className="md:col-span-2">
+              <h1 className="text-4xl font-bold text-blue-700 mb-4">{book.title}</h1>
+              <p className="text-2xl text-gray-600 mb-6">Szerző: {book.author}</p>
+              
+              {/* Értékelés */}
+              <div className="mb-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="text-xl font-semibold text-gray-700">Átlagos értékelés:</span>
+                  <span className="text-3xl font-bold text-yellow-500">★ {rating}/5</span>
+                  <span className="text-gray-500">({book.ertekelesek_szama || 0} értékelés)</span>
+                </div>
+                
+                {/* Csillagok megjelenítése */}
+                <div className="flex gap-1 mb-6">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <button
+                      key={star}
+                      onClick={() => handleRating(star)}
+                      className={`text-3xl transition-colors ${
+                        star <= (userRating || rating) ? 'text-yellow-500' : 'text-gray-300'
+                      } hover:text-yellow-400`}
+                    >
+                      ★
+                    </button>
+                  ))}
+                </div>
+                
+                {userRating > 0 && (
+                  <p className="text-green-600 font-semibold">Köszönjük az értékelést!</p>
+                )}
+              </div>
+              
+              {/* Összefoglaló */}
+              {book.summary && (
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold text-gray-700 mb-3">Összefoglaló</h3>
+                  <p className="text-gray-600 leading-relaxed text-lg">{book.summary}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+        
+        <div className="mt-8 text-center">
+          <Link 
+            to="/" 
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-colors"
+          >
+            Vissza a főoldalra
+          </Link>
+        </div>
       </div>
-      <div className="flex flex-col gap-2 justify-center max-w-2xl mx-auto mt-4 bg-white rounded-2xl shadow-lg p-8">
-        <h2 className="text-xl font-bold text-blue-700 mb-2">{book.title}</h2>
-        <div><b>Szerző:</b> {book.author}</div>
-        {book.volume && <div><b>Kötetszám:</b> {book.volume}</div>}
-        <div><b>Kiadás dátuma:</b> {book.publishDate}</div>
-        {book.translator && <div><b>Fordító:</b> {book.translator}</div>}
-        <div><b>Kiadó:</b> {book.publisher}</div>
-        <div><b>Feltöltés dátuma:</b> {book.uploadedAt}</div>
-      </div>
-    </>
+    </div>
   );
-}
-
-export default BookDetails; 
+} 

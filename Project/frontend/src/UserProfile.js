@@ -1,117 +1,273 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 
-
-const users = [
-  {
-    id: '1',
-    username: 'Anna123',
-    avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-    birthday: '2001-04-12',
-    bio: 'Könyvmoly, fantasy rajongó, Tolkien fan.',
-    status: 'online',
-  },
-  {
-    id: '2',
-    username: 'BelaTheReader',
-    avatar: '',
-    birthday: '',
-    bio: '',
-    status: 'offline',
-  },
-];
-
-const placeholderAvatar = 'https://cdn-icons-png.flaticon.com/512/149/149071.png';
-
-function UserProfile() {
+export default function UserProfile() {
   const { id } = useParams();
-  const user = users.find(u => u.id === id);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [editing, setEditing] = useState(false);
+  const [form, setForm] = useState({});
+  const [message, setMessage] = useState('');
 
-  // Demo data for recently read and favorites
-  const recentlyRead = [
-    { id: '101', title: 'A Gyűrűk Ura', author: 'J.R.R. Tolkien', cover: 'https://covers.openlibrary.org/b/id/8231856-L.jpg', date: '2025-07-20' },
-    { id: '102', title: 'Harry Potter', author: 'J.K. Rowling', cover: 'https://covers.openlibrary.org/b/id/7984916-L.jpg', date: '2025-07-10' },
-  ];
-  const favorites = [
-    { id: '201', title: 'Az útvesztő', author: 'James Dashner', cover: 'https://covers.openlibrary.org/b/id/8107896-L.jpg' },
-    { id: '202', title: 'A szolgálólány meséje', author: 'Margaret Atwood', cover: 'https://covers.openlibrary.org/b/id/8228691-L.jpg' },
-  ];
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const response = await fetch(`/api/profile.php?action=getById&id=${id}`);
+        const data = await response.json();
+        
+        if (data.success) {
+          setUser(data.user);
+          setForm({
+            lastname: data.user.lastname || '',
+            firstname: data.user.firstname || '',
+            email: data.user.email || '',
+            birthdate: data.user.birthdate || '',
+            gender: data.user.gender || ''
+          });
+        }
+      } catch (error) {
+        console.error('Hiba a felhasználói profil betöltésekor:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  return (
-    <section className="flex justify-center items-center min-h-[40vh]">
-      <div className={`bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-8 items-center w-full max-w-xl ${user?.status === 'online' ? 'border-2 border-green-400' : 'border border-gray-200'}`}>
-        <div className="flex flex-col md:flex-row gap-8 items-center w-full">
-          <div className="relative flex flex-col items-center">
-            <img src={user?.avatar || placeholderAvatar} alt="Profilkép" className="w-28 h-28 rounded-full object-cover border-4 border-blue-200" />
-            <span className={`absolute bottom-2 right-2 w-5 h-5 rounded-full border-2 border-white ${user?.status === 'online' ? 'bg-green-400' : 'bg-gray-400'}`}></span>
-          </div>
-          <div className="flex flex-col gap-2 w-full">
-            <div className="text-xl font-bold text-blue-700">{user?.username || 'Névtelen'}</div>
-            <div><b>Születésnap:</b> {user?.birthday || '—'}</div>
-            <div><b>Bio:</b> {user?.bio || 'Nincs bemutatkozás'}</div>
-            <div><b>Státusz:</b> <span className={user?.status === 'online' ? 'text-green-500' : 'text-gray-500'}>{user?.status || '—'}</span></div>
-          </div>
-        </div>
+    fetchUserProfile();
+  }, [id]);
 
-        {/* Recently Read Section */}
-        <div className="w-full mt-4">
-          <h3 className="text-lg font-bold text-blue-600 mb-2">Legutóbb olvasott könyvek</h3>
-          <div className="flex gap-4 overflow-x-auto pb-2">
-            {recentlyRead.length === 0 ? (
-              <span className="text-gray-400">Nincs adat</span>
-            ) : recentlyRead.map(book => (
-              <div key={book.id} className="min-w-[120px] bg-blue-50 rounded-lg shadow p-2 flex flex-col items-center">
-                <img src={book.cover} alt={book.title} className="w-16 h-24 object-cover rounded mb-1" />
-                <div className="text-sm font-semibold text-blue-700 text-center">
-                  <a href={`/book/${book.id}`} className="hover:underline">{book.title}</a>
-                </div>
-                <div className="text-xs text-gray-500">{book.author}</div>
-                <div className="text-xs text-gray-400">{book.date}</div>
-              </div>
-            ))}
-          </div>
-        </div>
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-        {/* Favorites Section */}
-        <div className="w-full mt-4">
-          <h3 className="text-lg font-bold text-blue-600 mb-2">Kedvenc könyvek</h3>
-          <div className="flex gap-4 overflow-x-auto pb-2">
-            {favorites.length === 0 ? (
-              <span className="text-gray-400">Nincs adat</span>
-            ) : favorites.map(book => (
-              <div key={book.id} className="min-w-[120px] bg-yellow-50 rounded-lg shadow p-2 flex flex-col items-center">
-                <img src={book.cover} alt={book.title} className="w-16 h-24 object-cover rounded mb-1" />
-                <div className="text-sm font-semibold text-yellow-700 text-center">
-                  <a href={`/book/${book.id}`} className="hover:underline">{book.title}</a>
-                </div>
-                <div className="text-xs text-gray-500">{book.author}</div>
-              </div>
-            ))}
-          </div>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage('');
+    
+    try {
+      const response = await fetch('/api/profile.php?action=update', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
+      
+      const data = await response.json();
+      setMessage(data.message);
+      
+      if (data.success) {
+        setEditing(false);
+        // Frissítjük a felhasználói adatokat
+        setUser({ ...user, ...form });
+      }
+    } catch (error) {
+      console.error('Hiba a profil frissítésekor:', error);
+      setMessage('Hiba történt a profil frissítésekor!');
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-50 to-blue-200 py-10 px-2 md:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="text-2xl text-blue-700">Betöltés...</div>
         </div>
       </div>
-    </section>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-50 to-blue-200 py-10 px-2 md:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="text-2xl text-red-700 mb-4">A felhasználó nem található!</div>
+          <Link to="/" className="text-blue-600 hover:underline">Vissza a főoldalra</Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-50 to-blue-200 py-10 px-2 md:px-8">
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-white/90 rounded-3xl shadow-2xl p-8 mb-8">
+          <div className="flex justify-between items-center mb-8">
+            <h1 className="text-4xl font-bold text-blue-700">
+              {user.firstname} {user.lastname} profilja
+            </h1>
+            <button
+              onClick={() => setEditing(!editing)}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors"
+            >
+              {editing ? 'Mégse' : 'Szerkesztés'}
+            </button>
+          </div>
+
+          {editing ? (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-2">Vezetéknév</label>
+                  <input
+                    type="text"
+                    name="lastname"
+                    value={form.lastname}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-blue-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-2">Keresztnév</label>
+                  <input
+                    type="text"
+                    name="firstname"
+                    value={form.firstname}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-blue-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
+                    required
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label className="block text-gray-700 text-sm font-bold mb-2">Email cím</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border-2 border-blue-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
+                  required
+                />
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-2">Születési dátum</label>
+                  <input
+                    type="date"
+                    name="birthdate"
+                    value={form.birthdate}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-blue-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 text-sm font-bold mb-2">Nem</label>
+                  <select
+                    name="gender"
+                    value={form.gender}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-blue-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
+                    required
+                  >
+                    <option value="">Válassz...</option>
+                    <option value="ferfi">Férfi</option>
+                    <option value="no">Nő</option>
+                    <option value="egyeb">Egyéb</option>
+                  </select>
+                </div>
+              </div>
+              
+              {message && (
+                <div className={`p-4 rounded-lg ${
+                  message.includes('sikeresen') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                }`}>
+                  {message}
+                </div>
+              )}
+              
+              <div className="flex gap-4">
+                <button
+                  type="submit"
+                  className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+                >
+                  Mentés
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setEditing(false)}
+                  className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+                >
+                  Mégse
+                </button>
+              </div>
+            </form>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-700 mb-4">Alapadatok</h3>
+                <div className="space-y-3">
+                  <div><strong>Felhasználónév:</strong> {user.username}</div>
+                  <div><strong>Email:</strong> {user.email}</div>
+                  <div><strong>Születési dátum:</strong> {user.birthdate}</div>
+                  <div><strong>Nem:</strong> {user.gender}</div>
+                  <div><strong>Regisztráció:</strong> {new Date(user.registration_date).toLocaleDateString('hu-HU')}</div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold text-gray-700 mb-4">Statisztikák</h3>
+                <div className="space-y-3">
+                  <div><strong>Legutóbb olvasott könyvek:</strong> {user.recentlyRead?.length || 0}</div>
+                  <div><strong>Kedvenc könyvek:</strong> {user.favorites?.length || 0}</div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Legutóbb olvasott könyvek */}
+        {user.recentlyRead && user.recentlyRead.length > 0 && (
+          <div className="bg-white/90 rounded-3xl shadow-2xl p-8 mb-8">
+            <h2 className="text-2xl font-bold text-blue-700 mb-6">Legutóbb olvasott könyvek</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {user.recentlyRead.map((book) => (
+                <div key={book.id} className="bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
+                  {book.cover ? (
+                    <img src={book.cover} alt={`${book.title} borítókép`} className="w-full h-32 object-cover rounded-xl mb-4" />
+                  ) : (
+                    <div className="w-full h-32 bg-gray-200 rounded-xl mb-4 flex items-center justify-center">
+                      <span className="text-gray-500">Nincs borítókép</span>
+                    </div>
+                  )}
+                  <h3 className="font-bold text-blue-700 mb-2">{book.title}</h3>
+                  <p className="text-gray-600 text-sm mb-2">{book.author}</p>
+                  <p className="text-gray-400 text-xs">{new Date(book.read_date).toLocaleDateString('hu-HU')}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Kedvenc könyvek */}
+        {user.favorites && user.favorites.length > 0 && (
+          <div className="bg-white/90 rounded-3xl shadow-2xl p-8">
+            <h2 className="text-2xl font-bold text-blue-700 mb-6">Kedvenc könyvek</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {user.favorites.map((book) => (
+                <div key={book.id} className="bg-white rounded-2xl p-6 shadow-lg border border-blue-100">
+                  {book.cover ? (
+                    <img src={book.cover} alt={`${book.title} borítókép`} className="w-full h-32 object-cover rounded-xl mb-4" />
+                  ) : (
+                    <div className="w-full h-32 bg-gray-200 rounded-xl mb-4 flex items-center justify-center">
+                      <span className="text-gray-500">Nincs borítókép</span>
+                    </div>
+                  )}
+                  <h3 className="font-bold text-blue-700 mb-2">{book.title}</h3>
+                  <p className="text-gray-600 text-sm">{book.author}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div className="text-center mt-8">
+          <Link to="/" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-colors">
+            Vissza a főoldalra
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }
-
-// Backend schema suggestion:
-// GET /api/user/:id
-// Response:
-/*
-{
-  id: string,
-  username: string,
-  avatar: string,
-  birthday: string,
-  bio: string,
-  status: 'online' | 'offline',
-  recentlyRead: [
-    { id: string, title: string, author: string, cover: string, date: string }
-  ],
-  favorites: [
-    { id: string, title: string, author: string, cover: string }
-  ]
-}
-*/
-
-export default UserProfile;

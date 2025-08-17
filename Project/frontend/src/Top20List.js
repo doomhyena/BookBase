@@ -1,31 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const top20Books = [
-  { id: '1', title: 'Harry Potter és a bölcsek köve', author: 'J.K. Rowling' },
-  { id: '2', title: 'A Gyűrűk Ura', author: 'J.R.R. Tolkien' },
-  { id: '3', title: 'A Da Vinci-kód', author: 'Dan Brown' },
-  { id: '4', title: 'Az alkimista', author: 'Paulo Coelho' },
-  { id: '5', title: '1984', author: 'George Orwell' },
-  { id: '6', title: 'A kis herceg', author: 'Antoine de Saint-Exupéry' },
-  { id: '7', title: 'A szél árnyéka', author: 'Carlos Ruiz Zafón' },
-  { id: '8', title: 'Az időutazó felesége', author: 'Audrey Niffenegger' },
-  { id: '9', title: 'A szürke ötven árnyalata', author: 'E.L. James' },
-  { id: '10', title: 'A Hobbit', author: 'J.R.R. Tolkien' },
-  { id: '11', title: 'Az elveszett jelkép', author: 'Dan Brown' },
-  { id: '12', title: 'Az arany ember', author: 'Jókai Mór' }
-];
-
-
 function Top20List() {
-  return (
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTop20Books = async () => {
+      try {
+        const response = await fetch('/api/books.php?action=getTop20');
+        const data = await response.json();
+        
+        if (data.success) {
+          setBooks(data.books);
+        }
+      } catch (error) {
+        console.error('Hiba a top 20 könyvek betöltésekor:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTop20Books();
+  }, []);
+
+  if (loading) {
+    return (
       <ul>
-        {top20Books.map((book) => (
+        <li className="py-3 text-gray-500">Betöltés...</li>
+      </ul>
+    );
+  }
+
+  if (books.length === 0) {
+    return (
+      <ul>
+        <li className="py-3 text-gray-500">Még nincsenek értékelések</li>
+      </ul>
+    );
+  }
+
+  return (
+    <ul>
+      {books.slice(0, 5).map((book, index) => (
         <li key={book.id} className="py-3 flex flex-col gap-1">
-          <strong className="text-blue-700 font-semibold text-base">
-            <Link to={`/book/${book.id}`} className="hover:underline hover:text-blue-900 transition-colors">{book.title}</Link>
-          </strong>
+          <div className="flex items-center gap-2">
+            <span className="text-yellow-500 font-bold text-sm">#{index + 1}</span>
+            <strong className="text-blue-700 font-semibold text-base">
+              <Link to={`/book/${book.id}`} className="hover:underline hover:text-blue-900 transition-colors">{book.title}</Link>
+            </strong>
+          </div>
           <span className="text-gray-500 text-sm">{book.author}</span>
+          <div className="flex items-center gap-2 text-xs text-gray-400">
+            <span>★ {book.atlag_ertekeles}/5</span>
+            <span>({book.ertekelesek_szama} értékelés)</span>
+          </div>
         </li>
       ))}
     </ul>

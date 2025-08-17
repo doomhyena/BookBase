@@ -1,60 +1,71 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-
-const initialPosts = [
-  {
-    id: '1',
-    author: 'Anna',
-    userId: '1',
-    title: 'Mit gondoltok a Gyűrűk Uráról?',
-    content: 'Szerintem zseniális a világépítés és a karakterek! Ti mit szerettek benne?',
-    date: '2024-05-10',
-  },
-  {
-    id: '2',
-    author: 'Béla',
-    userId: '2',
-    title: 'Ajánljatok modern sci-fit!',
-    content: 'Olyan könyvet keresek, ami izgalmas és elgondolkodtató. Tippek?',
-    date: '2024-05-11',
-  },
-];
-
-const initialComments = {
-  '1': [
-    { id: 'c1', author: 'Gábor', userId: '2', content: 'Nekem is nagy kedvencem!', date: '2024-05-10' },
-  ],
-  '2': [],
-};
+const API_BASE = 'http://localhost/BookBase-Dev/Project/backend';
 
 function Community() {
-  const [posts, setPosts] = useState(initialPosts);
+  const [posts, setPosts] = useState([]);
   const [form, setForm] = useState({ title: '', content: '', author: '', userId: '' });
-  const [comments, setComments] = useState(initialComments);
+  const [comments, setComments] = useState({});
   const [commentForms, setCommentForms] = useState({});
+  const [loading, setLoading] = useState(true);
+
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  const fetchPosts = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch(`${API_BASE}/community_posts.php`);
+      const data = await res.json();
+      if (data.success) {
+        setPosts(data.posts);
+        // Fetch comments for each post
+        const commentsObj = {};
+        await Promise.all(
+          data.posts.map(async post => {
+            const cres = await fetch(`${API_BASE}/community_comments.php?postId=${post.id}`);
+            const cdata = await cres.json();
+            commentsObj[post.id] = cdata.success ? cdata.comments : [];
+          })
+        );
+        setComments(commentsObj);
+      }
+    } catch (error) {
+      console.error('Hiba a bejegyzések vagy kommentek betöltésekor:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (!form.title.trim() || !form.content.trim() || !form.author.trim()) return;
-    const newId = (Date.now()).toString();
-    setPosts([
-      {
-        id: newId,
-        author: form.author,
-        userId: form.userId || '0',
-        title: form.title,
-        content: form.content,
-        date: new Date().toISOString().slice(0, 10),
-      },
-      ...posts,
-    ]);
-    setComments({ ...comments, [newId]: [] });
-    setForm({ title: '', content: '', author: '', userId: '' });
+    try {
+      const res = await fetch(`${API_BASE}/community_posts.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: form.title,
+          content: form.content,
+          author: form.author,
+          userId: form.userId || '0',
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setForm({ title: '', content: '', author: '', userId: '' });
+        fetchPosts();
+      }
+    } catch (error) {
+      console.error('Hiba a bejegyzés mentésekor:', error);
+    }
   }
 
   function handleCommentChange(postId, e) {
@@ -67,24 +78,37 @@ function Community() {
     });
   }
 
-  function handleCommentSubmit(postId, e) {
+  async function handleCommentSubmit(postId, e) {
     e.preventDefault();
     const cf = commentForms[postId] || {};
     if (!cf.author || !cf.content) return;
-    setComments({
-      ...comments,
-      [postId]: [
-        {
-          id: 'c' + Date.now(),
+    try {
+      const res = await fetch(`${API_BASE}/community_comments.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          postId,
+          content: cf.content,
           author: cf.author,
           userId: cf.userId || '0',
-          content: cf.content,
-          date: new Date().toISOString().slice(0, 10),
-        },
-        ...(comments[postId] || []),
-      ],
-    });
-    setCommentForms({ ...commentForms, [postId]: { author: '', content: '', userId: '' } });
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setCommentForms({ ...commentForms, [postId]: { author: '', content: '', userId: '' } });
+        fetchPosts();
+      }
+    } catch (error) {
+      console.error('Hiba a komment mentésekor:', error);
+    }
+  }
+
+  if (loading) {
+    return (
+      <div className="max-w-3xl mx-auto py-10 px-2 md:px-0 text-center">
+        <div className="text-2xl text-blue-700">Betöltés...</div>
+      </div>
+    );
   }
 
   return (

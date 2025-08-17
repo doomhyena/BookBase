@@ -1,25 +1,51 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const recommendedBooks = [
-  { id: '8', title: 'A kis herceg', author: 'Antoine de Saint-Exupéry' },
-  { id: '9', title: 'Az öreg halász és a tenger', author: 'Ernest Hemingway' },
-  { id: '10', title: 'Bűn és bűnhődés', author: 'Fjodor Dosztojevszkij' },
-  { id: '11', title: 'A Mester és Margarita', author: 'Mihail Bulgakov' },
-  { id: '12', title: 'A katedrális', author: 'Ken Follett' },
-  { id: '13', title: 'A három test problémája', author: 'Cixin Liu' },
-  { id: '14', title: 'A nevem Piros', author: 'Orhan Pamuk' },
-  { id: '15', title: 'A szél árnyéka', author: 'Carlos Ruiz Zafón' },
-  { id: '16', title: 'A titkos kert', author: 'Frances Hodgson Burnett' },
-  { id: '17', title: 'A vakond és a hóember', author: 'Zdeněk Miler' },
-  { id: '18', title: 'A varázshegy', author: 'Thomas Mann' },
-  { id: '19', title: 'A végtelen történet', author: 'Michael Ende' },
-];
-
 function RecommendedBooks() {
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchRecommendedBooks = async () => {
+      try {
+        // Mivel nincs specifikus API végpont az ajánlott könyvekhez,
+        // használjuk a top 20 könyveket placeholder-ként
+        const response = await fetch('/api/books.php?action=getTop20');
+        const data = await response.json();
+        
+        if (data.success) {
+          // Csak az első 11 könyvet jelenítjük meg
+          setBooks(data.books.slice(0, 11));
+        }
+      } catch (error) {
+        console.error('Hiba az ajánlott könyvek betöltésekor:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRecommendedBooks();
+  }, []);
+
+  if (loading) {
+    return (
+      <ul>
+        <li className="py-3 text-gray-500">Betöltés...</li>
+      </ul>
+    );
+  }
+
+  if (books.length === 0) {
+    return (
+      <ul>
+        <li className="py-3 text-gray-500">Még nincsenek ajánlott könyvek</li>
+      </ul>
+    );
+  }
+
   return (
     <ul>
-      {recommendedBooks.map((book) => (
+      {books.map((book) => (
         <li key={book.id} className="py-3 flex flex-col gap-1">
           <strong className="text-blue-700 font-semibold text-base">
             <Link to={`/book/${book.id}`} className="hover:underline hover:text-blue-900 transition-colors">{book.title}</Link>

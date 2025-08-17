@@ -5,10 +5,33 @@ export default function ForgotPassword() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setMessage('Ha létezik ilyen email, elküldtük a visszaállítási instrukciókat!');
-  };
+    
+    try {
+        const response = await fetch('/api/forgot-password.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email }),
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            setMessage(result.message);
+            // Átirányítás a jelszó módosítás oldalra
+            setTimeout(() => {
+                window.location.href = result.redirect_url || '/reset-password';
+            }, 2000);
+        } else {
+            setMessage(result.message || result.error || 'Hiba történt');
+        }
+    } catch (error) {
+        setMessage('Hálózati hiba történt.');
+    }
+};
 
   return (
     <form onSubmit={handleSubmit} autoComplete="on" className="w-full max-w-md mx-auto mt-16 flex flex-col items-center bg-white/90 rounded-3xl shadow-2xl p-8 gap-6 border-2 border-blue-300 backdrop-blur-lg">

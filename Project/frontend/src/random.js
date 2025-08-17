@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-
 const Random = () => {
   const [book, setBook] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -8,10 +7,15 @@ const Random = () => {
   const fetchRandom = async () => {
     setLoading(true);
     try {
-      const response = await fetch('/api/books.php?action=random');
+      const response = await fetch('/api/books.php?action=getRandom&limit=1');
       const data = await response.json();
-      setBook(data.book || null);
+      if (data.success && data.books.length > 0) {
+        setBook(data.books[0]);
+      } else {
+        setBook(null);
+      }
     } catch (e) {
+      console.error('Hiba a véletlenszerű könyv betöltésekor:', e);
       setBook(null);
     }
     setLoading(false);
@@ -29,7 +33,7 @@ const Random = () => {
         <div className="mb-4">
           <h3 className="text-lg font-bold text-blue-700 mb-2">{book.title}</h3>
           <p><b>Író:</b> {book.author}</p>
-          <p><b>Leírás:</b> {book.description || 'Nincs leírás.'}</p>
+          {book.summary && <p><b>Leírás:</b> {book.summary}</p>}
           <button onClick={fetchRandom} className="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow transition-colors">Másik könyv</button>
         </div>
       )}

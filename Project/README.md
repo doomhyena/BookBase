@@ -2,7 +2,8 @@
 
 ## Áttekintés
 
-Egy könyvtár kezelő adatbázissal, ahol lehet könyveket nyilvántartani, kölcsönözni. 
+Egy könyvtár kezelő adatbázissal, ahol lehet könyveket nyilvántartani. 
+
 ## Főbb funkciók
 
 - Funkció 1
@@ -27,5 +28,3 @@ A részletes telepítési és használati útmutató megtalálható a projekt do
     Backend programozás és tesztelés: jegy szám (jegy leírva) százalék
 
 ```
-
-// Edit src/App.js

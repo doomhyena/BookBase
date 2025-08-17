@@ -19,6 +19,8 @@ import BookDetails from './BookDetails';
 import Community from './Community';
 import UserProfile from './UserProfile';
 import ForgotPassword from './ForgotPassword';
+import AdminPanel from './AdminPanel';
+import ResetPassword from './ResetPassword';
 
 function Home() {
   return (
@@ -77,6 +79,8 @@ function App() {
         <Route path="/book/:id" element={<BookDetails />} />
         <Route path="/user/:id" element={<UserProfile />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/admin/AdminPanel" element={<AdminPanel />} />
       </Routes>
       <Footer />
     </Router>
