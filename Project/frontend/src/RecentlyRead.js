@@ -1,29 +1,51 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+const API_BASE = 'http://localhost/BookBase-Dev/Project/backend';
+
+export async function fetchRecentlyRead() {
+  try {
+    const res = await fetch(`${API_BASE}/recentlyread.php`);
+    if (!res.ok) throw new Error('A szerver nem elérhető vagy hibás választ adott!');
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    return { success: false, message: 'A szerver nem elérhető vagy hibás választ adott!' };
+  }
+}
+
+// Cookie olvasó segédfüggvény
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
+}
+
 function RecentlyRead() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchRecentlyRead = async () => {
+    const fetchRecentlyReadBooks = async () => {
       try {
-        // Mivel nincs specifikus API végpont a legutóbb olvasott könyvekhez,
-        // használjuk a véletlenszerű könyveket placeholder-ként
-        const response = await fetch('/api/books.php?action=getRandom&limit=4');
-        const data = await response.json();
-        
+        const userId = getCookie('id');
+  const res = await fetch(`http://localhost/BookBase-Dev/Project/backend/recentlyread.php?api=true&userId=${userId}`, { credentials: 'include' });
+        if (!res.ok) throw new Error('A szerver nem elérhető vagy hibás választ adott!');
+        const data = await res.json();
         if (data.success) {
           setBooks(data.books);
+        } else {
+          setBooks([]);
         }
       } catch (error) {
         console.error('Hiba a legutóbb olvasott könyvek betöltésekor:', error);
+        setBooks([]);
       } finally {
         setLoading(false);
       }
     };
-
-    fetchRecentlyRead();
+    fetchRecentlyReadBooks();
   }, []);
 
   if (loading) {
@@ -56,4 +78,4 @@ function RecentlyRead() {
   );
 }
 
-export default RecentlyRead; 
+export default RecentlyRead;

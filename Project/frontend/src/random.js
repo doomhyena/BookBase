@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+const API_BASE = 'http://localhost/BookBase-Dev/Project/backend';
+
 const Random = () => {
   const [book, setBook] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -7,7 +9,8 @@ const Random = () => {
   const fetchRandom = async () => {
     setLoading(true);
     try {
-      const response = await fetch('/api/books.php?action=getRandom&limit=1');
+      const response = await fetch(`${API_BASE}/randombooks.php`);
+      if (!response.ok) throw new Error('A szerver nem elérhető vagy hibás választ adott!');
       const data = await response.json();
       if (data.success && data.books.length > 0) {
         setBook(data.books[0]);

@@ -13,7 +13,7 @@ export default function Search() {
 
     setLoading(true);
     try {
-      const response = await fetch(`/api/books.php?action=search&q=${encodeURIComponent(query)}`);
+  const response = await fetch(`http://localhost/BookBase-Dev/Project/backend/search.php?api=true&q=${encodeURIComponent(query)}`);
       const data = await response.json();
       
       if (data.success) {

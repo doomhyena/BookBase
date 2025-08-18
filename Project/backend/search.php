@@ -6,23 +6,19 @@
     header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
     header('Access-Control-Allow-Headers: Content-Type');
     header('Content-Type: application/json');
+    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(204); exit; }
     
     require "db/db.php";
     
     // Ellenőrizzük, hogy API kérés-e
     if(isset($_GET['api']) && $_GET['api'] === 'true') {
-        header('Content-Type: application/json');
-        
         $query = $_GET['q'] ?? '';
-        
         if(empty($query)){
             echo json_encode(['success' => false, 'message' => 'Keresési kifejezés megadása kötelező!']);
             exit;
         }
-        
         $sql = "SELECT * FROM books WHERE title LIKE '%$query%' OR author LIKE '%$query%' ORDER BY title";
         $eredmeny = $conn->query($sql);
-        
         $konyvek = [];
         if ($eredmeny && $eredmeny->num_rows > 0) {
             while ($konyv = $eredmeny->fetch_assoc()) {
@@ -35,7 +31,6 @@
                 ];
             }
         }
-        
         echo json_encode(['success' => true, 'books' => $konyvek, 'count' => count($konyvek)]);
         exit;
     }

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+const API_BASE = 'http://localhost/BookBase-Dev/Project/backend';
+
 function RecommendedBooks() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -8,10 +10,9 @@ function RecommendedBooks() {
   useEffect(() => {
     const fetchRecommendedBooks = async () => {
       try {
-        // Mivel nincs specifikus API végpont az ajánlott könyvekhez,
-        // használjuk a top 20 könyveket placeholder-ként
-        const response = await fetch('/api/books.php?action=getTop20');
-        const data = await response.json();
+  const res = await fetch('http://localhost/BookBase-Dev/Project/backend/recommendedbooks.php', { credentials: 'include' });
+        if (!res.ok) throw new Error('A szerver nem elérhető vagy hibás választ adott!');
+        const data = await res.json();
         
         if (data.success) {
           // Csak az első 11 könyvet jelenítjük meg
@@ -57,4 +58,4 @@ function RecommendedBooks() {
   );
 }
 
-export default RecommendedBooks; 
+export default RecommendedBooks;

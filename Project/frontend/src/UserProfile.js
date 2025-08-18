@@ -12,14 +12,12 @@ export default function UserProfile() {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await fetch(`/api/profile.php?action=getById&id=${id}`);
-        const data = await response.json();
-        
+  const res = await fetch(`http://localhost/BookBase-Dev/Project/backend/userprofile.php?action=getById&id=${id}`, { credentials: 'include' });
+        if (!res.ok) throw new Error('A szerver nem elérhető vagy hibás választ adott!');
+        const data = await res.json();
         if (data.success) {
           setUser(data.user);
           setForm({
-            lastname: data.user.lastname || '',
-            firstname: data.user.firstname || '',
             email: data.user.email || '',
             birthdate: data.user.birthdate || '',
             gender: data.user.gender || ''
@@ -44,10 +42,10 @@ export default function UserProfile() {
     setMessage('');
     
     try {
-      const response = await fetch('/api/profile.php?action=update', {
+  const response = await fetch(`http://localhost/BookBase-Dev/Project/backend/userprofile.php?action=update`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
+        body: JSON.stringify({ ...form, id })
       });
       
       const data = await response.json();
@@ -55,8 +53,14 @@ export default function UserProfile() {
       
       if (data.success) {
         setEditing(false);
-        // Frissítjük a felhasználói adatokat
-        setUser({ ...user, ...form });
+        // Frissítés után újra lekérjük a felhasználói adatokat az adatbázisból
+        try {
+          const res = await fetch(`http://localhost/BookBase-Dev/Project/backend/userprofile.php?action=getById&id=${id}`, { credentials: 'include' });
+          if (res.ok) {
+            const fresh = await res.json();
+            if (fresh.success) setUser(fresh.user);
+          }
+        } catch (err) {}
       }
     } catch (error) {
       console.error('Hiba a profil frissítésekor:', error);
@@ -91,7 +95,7 @@ export default function UserProfile() {
         <div className="bg-white/90 rounded-3xl shadow-2xl p-8 mb-8">
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-4xl font-bold text-blue-700">
-              {user.firstname} {user.lastname} profilja
+              {user.username} profilja
             </h1>
             <button
               onClick={() => setEditing(!editing)}
@@ -103,30 +107,7 @@ export default function UserProfile() {
 
           {editing ? (
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-gray-700 text-sm font-bold mb-2">Vezetéknév</label>
-                  <input
-                    type="text"
-                    name="lastname"
-                    value={form.lastname}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border-2 border-blue-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-700 text-sm font-bold mb-2">Keresztnév</label>
-                  <input
-                    type="text"
-                    name="firstname"
-                    value={form.firstname}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border-2 border-blue-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
-                    required
-                  />
-                </div>
-              </div>
+              {/* Nincs vezetéknév és keresztnév mező */}
               
               <div>
                 <label className="block text-gray-700 text-sm font-bold mb-2">Email cím</label>
@@ -202,7 +183,7 @@ export default function UserProfile() {
                   <div><strong>Email:</strong> {user.email}</div>
                   <div><strong>Születési dátum:</strong> {user.birthdate}</div>
                   <div><strong>Nem:</strong> {user.gender}</div>
-                  <div><strong>Regisztráció:</strong> {new Date(user.registration_date).toLocaleDateString('hu-HU')}</div>
+                  {/* Regisztráció dátum csak ha van ilyen mező */}
                 </div>
               </div>
               

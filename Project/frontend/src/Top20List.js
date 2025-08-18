@@ -1,16 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+const API_BASE = 'http://localhost/BookBase-Dev/Project/backend';
+
+// fetchTop20List példa
+export async function fetchTop20List() {
+  try {
+    const res = await fetch(`${API_BASE}/top20list.php`);
+    if (!res.ok) throw new Error('A szerver nem elérhető vagy hibás választ adott!');
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    return { success: false, message: 'A szerver nem elérhető vagy hibás választ adott!' };
+  }
+}
+
 function Top20List() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchTop20Books = async () => {
+    const fetchTop20List = async () => {
       try {
-        const response = await fetch('/api/books.php?action=getTop20');
-        const data = await response.json();
-        
+  const res = await fetch('http://localhost/BookBase-Dev/Project/backend/top20list.php', { credentials: 'include' });
+        if (!res.ok) throw new Error('A szerver nem elérhető vagy hibás választ adott!');
+        const data = await res.json();
+
         if (data.success) {
           setBooks(data.books);
         }
@@ -21,7 +36,7 @@ function Top20List() {
       }
     };
 
-    fetchTop20Books();
+    fetchTop20List();
   }, []);
 
   if (loading) {

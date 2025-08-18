@@ -1,6 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+const API_BASE = 'http://localhost/BookBase-Dev/Project/backend';
+
+export async function fetchNewBooks() {
+  try {
+    const res = await fetch(`${API_BASE}/randombooks.php`);
+    if (!res.ok) throw new Error('A szerver nem elérhető vagy hibás választ adott!');
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    return { success: false, message: 'A szerver nem elérhető vagy hibás választ adott!' };
+  }
+}
+
 function NewBooks() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -8,9 +21,10 @@ function NewBooks() {
   useEffect(() => {
     const fetchNewBooks = async () => {
       try {
-        const response = await fetch('/api/books.php?action=getNew&limit=5');
-        const data = await response.json();
-        
+  const res = await fetch('http://localhost/BookBase-Dev/Project/backend/randombooks.php', { credentials: 'include' });
+        if (!res.ok) throw new Error('A szerver nem elérhető vagy hibás választ adott!');
+        const data = await res.json();
+
         if (data.success) {
           setBooks(data.books);
         }
@@ -54,4 +68,4 @@ function NewBooks() {
   );
 }
 
-export default NewBooks; 
+export default NewBooks;

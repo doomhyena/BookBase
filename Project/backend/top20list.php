@@ -2,15 +2,18 @@
     // CORS beállítások - mindig az elején, mielőtt bármi más történik
     header_remove();
     header('Access-Control-Allow-Origin: http://localhost:3000');
+    header('Access-Control-Allow-Credentials: true');
     header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
     header('Access-Control-Allow-Headers: Content-Type');
     header('Content-Type: application/json');
-    
+    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(204); exit; }
+
     // Feltételezzük, hogy a db.php tartalmazza a $conn változót, ami az adatbázis kapcsolatot
     require  "db/db.php";
 
     if(!isset($_COOKIE['id'])){ // Ellenőrzi, hogy létezik-e 'id' nevű süti (cookie)
-        header("Location: index.php"); // Ha nincs, átirányítja a felhasználót a főoldalra
+        echo json_encode(["success" => false, "message" => "Nincs bejelentkezett felhasználó!"]);
+        exit;
     }
 
     // Top 20 könyv lekérdezése (jelenleg csak az összes könyvet adja vissza, mert nincs rating rendszer)
