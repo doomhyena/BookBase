@@ -6,13 +6,13 @@ Egy könyvtár kezelő adatbázissal, ahol lehet könyveket nyilvántartani.
 
 ## Főbb funkciók
 
-- Funkció 1
-- Funkció 2
-- Funkció 3
-- Funkció 4
+- Profil testreszabása
+- Könyvek értékelése
+- Random könyv ajáánlása
+- Bejegyzések létrehozása
 
 ## Főbb technológiai háttere:
-- Frontend: HTML, CSS, JavaScript
+- Frontend: React.js
 - Backend: PHP
 - Adatbázis: MySQL
 - Framework: Tailwind CSS
