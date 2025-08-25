@@ -1,6 +1,3 @@
--- BookBase adatbázis séma
--- NoteShare-Dev-main stílusú backend-hez
-
 -- Felhasználók tábla
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -21,6 +18,7 @@ CREATE TABLE IF NOT EXISTS books (
     author VARCHAR(255) NOT NULL,
     summary TEXT,
     cover VARCHAR(255),
+    category VARCHAR(100) DEFAULT 'Egyéb', -- 🔥 új mező
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -84,8 +82,7 @@ CREATE TABLE IF NOT EXISTS community_comments (
 );
 
 -- Minta könyvek
-INSERT INTO books (title, author, summary) VALUES
-('A Gyűrűk Ura', 'J.R.R. Tolkien', 'Egy epikus fantasy regény, amely egy varázsgyűrűről és annak megsemmisítéséért vívott küzdelemről szól.'),
-('1984', 'George Orwell', 'Egy disztopikus regény, amely egy totalitárius társadalomról és a gondolatszabadság elnyomásáról szól.'),
-('A Kicsi Herceg', 'Antoine de Saint-Exupéry', 'Egy filozofikus meseregény, amely az élet értelméről és a szeretet fontosságáról szól.');
-
+INSERT INTO books (title, author, summary, category) VALUES
+('A Gyűrűk Ura', 'J.R.R. Tolkien', 'Egy epikus fantasy regény, amely egy varázsgyűrűről és annak megsemmisítéséért vívott küzdelemről szól.', 'Fantasy'),
+('1984', 'George Orwell', 'Egy disztopikus regény, amely egy totalitárius társadalomról és a gondolatszabadság elnyomásáról szól.', 'Disztópia'),
+('A Kicsi Herceg', 'Antoine de Saint-Exupéry', 'Egy filozofikus meseregény, amely az élet értelméről és a szeretet fontosságáról szól.', 'Meseregény');

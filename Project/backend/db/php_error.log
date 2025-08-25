@@ -84,3 +84,90 @@ Stack trace:
 [18-Aug-2025 21:45:17 Europe/Berlin] PHP Deprecated:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in C:\xampp\htdocs\BookBase-Dev\Project\backend\bookdetails.php on line 34
 [18-Aug-2025 22:18:40 Europe/Berlin] PHP Deprecated:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in C:\xampp\htdocs\BookBase-Dev\Project\backend\bookdetails.php on line 34
 [18-Aug-2025 22:18:40 Europe/Berlin] PHP Deprecated:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in C:\xampp\htdocs\BookBase-Dev\Project\backend\bookdetails.php on line 34
+[25-Aug-2025 13:06:05 Europe/Berlin] PHP Deprecated:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in C:\xampp\htdocs\BookBase-Dev\Project\backend\bookdetails.php on line 34
+[25-Aug-2025 13:06:05 Europe/Berlin] PHP Deprecated:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in C:\xampp\htdocs\BookBase-Dev\Project\backend\bookdetails.php on line 34
+[25-Aug-2025 14:27:31 Europe/Berlin] PHP Deprecated:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in C:\xampp\htdocs\BookBase-Dev\Project\backend\bookdetails.php on line 34
+[25-Aug-2025 14:27:31 Europe/Berlin] PHP Deprecated:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in C:\xampp\htdocs\BookBase-Dev\Project\backend\bookdetails.php on line 34
+[25-Aug-2025 14:27:39 Europe/Berlin] PHP Warning:  Undefined array key "stock" in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 69
+[25-Aug-2025 14:27:39 Europe/Berlin] PHP Warning:  Undefined array key "category" in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 70
+[25-Aug-2025 14:27:43 Europe/Berlin] PHP Deprecated:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in C:\xampp\htdocs\BookBase-Dev\Project\backend\bookdetails.php on line 34
+[25-Aug-2025 14:27:43 Europe/Berlin] PHP Deprecated:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in C:\xampp\htdocs\BookBase-Dev\Project\backend\bookdetails.php on line 34
+[25-Aug-2025 14:28:10 Europe/Berlin] PHP Deprecated:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in C:\xampp\htdocs\BookBase-Dev\Project\backend\bookdetails.php on line 34
+[25-Aug-2025 14:28:10 Europe/Berlin] PHP Deprecated:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in C:\xampp\htdocs\BookBase-Dev\Project\backend\bookdetails.php on line 34
+[25-Aug-2025 14:32:04 Europe/Berlin] PHP Deprecated:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in C:\xampp\htdocs\BookBase-Dev\Project\backend\bookdetails.php on line 34
+[25-Aug-2025 14:32:04 Europe/Berlin] PHP Deprecated:  round(): Passing null to parameter #1 ($num) of type int|float is deprecated in C:\xampp\htdocs\BookBase-Dev\Project\backend\bookdetails.php on line 34
+[25-Aug-2025 14:32:51 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`bookbase`.`community_posts`, CONSTRAINT `community_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php:46
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php(46): mysqli->query('INSERT INTO com...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php on line 46
+[25-Aug-2025 14:32:54 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`bookbase`.`community_posts`, CONSTRAINT `community_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php:46
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php(46): mysqli->query('INSERT INTO com...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php on line 46
+[25-Aug-2025 14:40:44 Europe/Berlin] PHP Warning:  Undefined array key "stock" in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 73
+[25-Aug-2025 14:40:51 Europe/Berlin] PHP Warning:  Undefined array key "stock" in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 73
+[25-Aug-2025 14:40:53 Europe/Berlin] PHP Warning:  Undefined array key "stock" in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 73
+[25-Aug-2025 14:40:54 Europe/Berlin] PHP Warning:  Undefined array key "stock" in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 73
+[25-Aug-2025 14:40:55 Europe/Berlin] PHP Warning:  Undefined array key "stock" in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 73
+[25-Aug-2025 14:40:55 Europe/Berlin] PHP Warning:  Undefined array key "stock" in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 73
+[25-Aug-2025 14:40:55 Europe/Berlin] PHP Warning:  Undefined array key "stock" in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 73
+[25-Aug-2025 14:41:00 Europe/Berlin] PHP Warning:  Undefined array key "stock" in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 73
+[25-Aug-2025 14:41:00 Europe/Berlin] PHP Warning:  Undefined array key "stock" in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 73
+[25-Aug-2025 14:41:00 Europe/Berlin] PHP Warning:  Undefined array key "stock" in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 73
+[25-Aug-2025 14:48:14 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`bookbase`.`community_posts`, CONSTRAINT `community_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php:46
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php(46): mysqli->query('INSERT INTO com...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php on line 46
+[25-Aug-2025 14:48:16 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`bookbase`.`community_posts`, CONSTRAINT `community_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php:46
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php(46): mysqli->query('INSERT INTO com...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php on line 46
+[25-Aug-2025 14:48:16 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`bookbase`.`community_posts`, CONSTRAINT `community_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php:46
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php(46): mysqli->query('INSERT INTO com...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php on line 46
+[25-Aug-2025 14:48:16 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`bookbase`.`community_posts`, CONSTRAINT `community_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php:46
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php(46): mysqli->query('INSERT INTO com...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php on line 46
+[25-Aug-2025 14:48:16 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`bookbase`.`community_posts`, CONSTRAINT `community_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php:46
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php(46): mysqli->query('INSERT INTO com...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php on line 46
+[25-Aug-2025 14:48:17 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`bookbase`.`community_posts`, CONSTRAINT `community_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php:46
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php(46): mysqli->query('INSERT INTO com...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php on line 46
+[25-Aug-2025 14:48:17 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`bookbase`.`community_posts`, CONSTRAINT `community_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php:46
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php(46): mysqli->query('INSERT INTO com...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php on line 46
+[25-Aug-2025 14:48:17 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`bookbase`.`community_posts`, CONSTRAINT `community_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php:46
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php(46): mysqli->query('INSERT INTO com...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php on line 46
+[25-Aug-2025 14:48:17 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`bookbase`.`community_posts`, CONSTRAINT `community_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php:46
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php(46): mysqli->query('INSERT INTO com...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php on line 46
+[25-Aug-2025 14:55:57 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`bookbase`.`community_posts`, CONSTRAINT `community_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE) in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php:46
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php(46): mysqli->query('INSERT INTO com...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php on line 46
+[25-Aug-2025 14:58:35 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'user_id' cannot be null in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php:53
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php(53): mysqli->query('INSERT INTO com...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php on line 53

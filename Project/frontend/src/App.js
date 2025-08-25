@@ -1,16 +1,12 @@
 import './output.css';
-// import './HomeCard.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
 import Navbar from './Navbar';
 import Footer from './Footer';
-
 import Register from './Register';
 import Login from './Login';
 import Search from './Search';
 import Random from './random';
 import RecentlyRead from './RecentlyRead';
-// import Top20List from './Top20List';
 import NewBooks from './NewBooks';
 import RecommendedBooks from './RecommendedBooks';
 import Top20List from './Top20List';

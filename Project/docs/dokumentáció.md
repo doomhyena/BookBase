@@ -1,4 +1,18 @@
 <div align="center">
+
+<h1> BookBase </h1>
+
+<hr>
+
+Egy könyvtár kezelő adatbázissal, ahol lehet könyveket kezelni.
+
+<br> ![BookBase Logó](img/logo.png)<br>
+
+</div>
+
+<div style="page-break-before: always;"></div>
+
+<div align="center">
 <h1> „Schola Europa Akadémia” Technikum, Gimnázium és Alapfokú Művészeti Iskola a  Magyarországi Metodista Egyház fenntartásában </h1>
 
 <br> ![Schola Europa Akadémia logó](img/scholalogo.png)<br>
@@ -54,8 +68,7 @@ body {
 	- 5.2. [Jogosultságkezelés (RBAC)](#52-jogosultságkezelés-rbac)
 
 6. [Tesztelés](#6-tesztelés)
-	- 6.1. [Egység Tesztek](#61-egység-tesztek)
-	- 6.2. [Manuális Tesztek](#62-manuális-tesztek)
+	- 6.1. [Manuális Tesztek](#62-manuális-tesztek)
 
 7. [Deployment](#7-deployment)
 	- 7.1. [Környezetek](#71-környezetek)
@@ -113,18 +126,19 @@ A BookBase-Dev egy modern, felhasználóbarát online könyvplatform, amely lehe
 ### 1.3. Technológiai Stack
 
 #### Frontend
-- React (SPA)
+- React 
 - React Router
 - Tailwind CSS
 - JavaScript
 
 #### Backend
-- PHP (REST API)
+- PHP 
+- REST API
 - MySQL
 
 #### Infrastruktúra
 - XAMPP (Apache, MySQL, PHP)
-- Windows fejlesztői környezet
+- Windows 10/11 fejlesztői környezet
 
 #### Hardverek
 
@@ -299,21 +313,13 @@ graph TD
 - User jogkör: saját profil, könyvek, közösség
 - Jogosultságok ellenőrzése backend oldalon
 
----
 
 ## 6. Tesztelés
 
-### 6.1. Egység Tesztek
-
-- Frontend: Jest, React Testing Library (pl. komponens renderelés, form validáció)
-- Backend: PHP egységtesztek (pl. adatbázis műveletek, API válaszok)
-
-### 6.2. Manuális Tesztek
+### 6.1. Manuális Tesztek
 
 - Felhasználói folyamatok tesztelése: regisztráció, bejelentkezés, profil módosítás, könyv böngészés
 - Admin funkciók tesztelése
-
----
 
 ## 7. Deployment
 
@@ -339,7 +345,6 @@ graph TD
 - Tipikus hibák: adatbázis kapcsolat, bejelentkezés, fájl feltöltés
 - Logok, böngésző konzol, szerver naplók
 
----
 
 ## 8. API Dokumentáció
 
@@ -372,7 +377,6 @@ graph TD
 |---------|---------|---------|
 | `/backend/bookdetails.php?action=uploadCover` | POST | Borítókép feltöltés |
 
----
 
 ## 9. Felhasználói Dokumentáció
 
@@ -402,7 +406,6 @@ graph TD
 - Fájl feltöltési hibák: fájlméret, típus ellenőrzése
 - Bejelentkezési problémák: jelszó helyessége, email formátum
 
----
 
 ## 10. Fejlesztői Dokumentáció
 
@@ -425,7 +428,6 @@ graph TD
 - Feature branch workflow
 - Pull request, code review
 
----
 
 ## 11. Jövőbeli Tervek
 

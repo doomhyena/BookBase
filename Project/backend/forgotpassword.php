@@ -50,7 +50,3 @@
         'token' => $token,
         'redirect_url' => "/reset-password?token=$token"
     ]);
-
-    $stmt->close();
-    $stmt2->close();
-    $conn->close();

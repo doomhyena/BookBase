@@ -7,15 +7,32 @@ export default function Search() {
   const [loading, setLoading] = useState(false);
   const [searched, setSearched] = useState(false);
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    if (!query.trim()) return;
+  // szűrők state
+  const [category, setCategory] = useState('');
+  const [sort, setSort] = useState('title_asc');
+  const [inStock, setInStock] = useState(false);
 
+  // külön fetch függvény, hogy a szűrők változásakor is tudjunk lekérni
+  const fetchBooks = async (override = {}) => {
     setLoading(true);
     try {
-  const response = await fetch(`http://localhost/BookBase-Dev/Project/backend/search.php?api=true&q=${encodeURIComponent(query)}`);
+      const q = override.q ?? query;
+      const cat = override.category ?? category;
+      const srt = override.sort ?? sort;
+      const stk = override.inStock ?? inStock;
+
+      const params = new URLSearchParams({
+        q,                       // lehet üres is
+        category: cat || '',
+        sort: srt || 'title_asc',
+        inStock: stk ? '1' : '0',
+      });
+
+      const response = await fetch(
+        `http://localhost/BookBase-Dev/Project/backend/search.php?api=true&${params.toString()}`
+      );
       const data = await response.json();
-      
+
       if (data.success) {
         setBooks(data.books);
       } else {
@@ -25,17 +42,25 @@ export default function Search() {
     } catch (error) {
       console.error('Hiba a keresés során:', error);
       setBooks([]);
+      setSearched(true);
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    // NINCS early return: üres queryvel is keressünk (kategória/sorrend működjön)
+    fetchBooks();
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-50 to-blue-200 py-10 px-2 md:px-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-8 text-blue-700">Könyv keresése</h1>
-        
-        <form onSubmit={handleSearch} className="mb-8">
+
+        {/* keresőmező */}
+        <form onSubmit={handleSearch} className="mb-6">
           <div className="flex gap-4 max-w-2xl mx-auto">
             <input
               type="text"
@@ -54,20 +79,68 @@ export default function Search() {
           </div>
         </form>
 
+        {/* SZŰRŐK WRAPPER – ez hiányzott, ezért volt JSX error */}
+        <div className="bg-white/90 rounded-2xl shadow-lg p-6 mb-8 flex flex-wrap gap-4 items-center justify-center">
+          <select
+            value={category}
+            onChange={(e) => { const v = e.target.value; setCategory(v); fetchBooks({ category: v }); }}
+            className="px-4 py-2 rounded-lg border border-gray-300 shadow-sm"
+          >
+            <option value="">Összes kategória</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Disztópia">Disztópia</option>
+            <option value="Szépirodalom">Szépirodalom</option>
+            <option value="Ismeretterjesztő">Ismeretterjesztő</option>
+            <option value="Horror">Horror</option>
+            <option value="Romantikus">Romantikus</option>
+            <option value="Történelem">Történelem</option>
+            <option value="Krimi">Krimi</option>
+            <option value="Ifjúsági">Ifjúsági</option>
+            <option value="Meseregény">Meseregény</option>
+          </select>
+
+          <select
+            value={sort}
+            onChange={(e) => { const v = e.target.value; setSort(v); fetchBooks({ sort: v }); }}
+            className="px-4 py-2 rounded-lg border border-gray-300 shadow-sm"
+          >
+            <option value="title_asc">Cím (A-Z)</option>
+            <option value="title_desc">Cím (Z-A)</option>
+            <option value="author_asc">Szerző (A-Z)</option>
+            <option value="author_desc">Szerző (Z-A)</option>
+            <option value="created_desc">Legújabb elöl</option>
+            <option value="created_asc">Legrégebbi elöl</option>
+          </select>
+
+          <label className="flex items-center gap-2 text-gray-700">
+            <input
+              type="checkbox"
+              checked={inStock}
+              onChange={(e) => { const v = e.target.checked; setInStock(v); fetchBooks({ inStock: v }); }}
+              className="w-4 h-4"
+            />
+            Csak készleten
+          </label>
+
+          {loading && <span className="text-sm text-gray-500">Betöltés…</span>}
+        </div>
+
+        {/* eredmények */}
         {searched && (
           <div className="bg-white/90 rounded-3xl shadow-2xl p-8">
             <h2 className="text-2xl font-bold mb-6 text-blue-700">
               Keresési eredmények ({books.length} találat)
             </h2>
-            
+
             {books.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {books.map((book) => (
                   <div key={book.id} className="bg-white rounded-2xl p-6 shadow-lg border border-blue-100 hover:shadow-xl transition-shadow">
                     {book.cover ? (
-                      <img 
-                        src={book.cover} 
-                        alt={`${book.title} borítókép`} 
+                      <img
+                        src={book.cover}
+                        alt={`${book.title} borítókép`}
                         className="w-full h-48 object-cover rounded-xl mb-4"
                       />
                     ) : (
@@ -75,11 +148,12 @@ export default function Search() {
                         <span className="text-gray-500">Nincs borítókép</span>
                       </div>
                     )}
-                    
+
                     <h3 className="text-lg font-bold text-blue-700 mb-2 line-clamp-2">
                       {book.title}
                     </h3>
-                    <p className="text-gray-600 mb-3">Szerző: {book.author}</p>
+                    <p className="text-gray-600 mb-1">Szerző: {book.author}</p>
+                    {book.category && <p className="text-sm text-gray-500 mb-3">Kategória: {book.category}</p>}
                     {book.summary && (
                       <p className="text-sm text-gray-500 line-clamp-3 mb-4">
                         {book.summary}
@@ -100,7 +174,7 @@ export default function Search() {
                   Nem találtunk könyvet a "{query}" keresési feltétellel.
                 </p>
                 <p className="text-gray-400">
-                  Próbáld meg másik kulcsszóval keresni.
+                  Próbáld meg másik kulcsszóval vagy szűrővel.
                 </p>
               </div>
             )}

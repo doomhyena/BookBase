@@ -157,4 +157,4 @@
     
     echo json_encode(['success' => false, 'message' => 'Érvénytelen művelet!']);
     exit;
-?>
+

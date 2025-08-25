@@ -26,4 +26,3 @@
     } else {
         echo "<script>alert('Már ki vagy jelentkezve!'); window.location.href='index.php';</script>";
     }
-?>
