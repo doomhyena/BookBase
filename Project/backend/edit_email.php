@@ -1,5 +1,4 @@
 <?php
-
     // CORS beállítások - mindig az elején, mielőtt bármi más történik
     header_remove();
     header('Access-Control-Allow-Origin: http://localhost:3000');

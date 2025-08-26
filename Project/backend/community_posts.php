@@ -2,11 +2,12 @@
     // CORS beállítások
     header_remove();
     header('Access-Control-Allow-Origin: http://localhost:3000');
-    header('Access-Control-Allow-Credentials: true'); 
     header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
     header('Access-Control-Allow-Headers: Content-Type');
+    header('Access-Control-Allow-Credentials: true'); // 🔥 kell a cookie-hoz
     header('Content-Type: application/json');
 
+    // Preflight (OPTIONS) kérés kezelése
     if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
         http_response_code(204);
         exit;
@@ -17,6 +18,7 @@
     $method = $_SERVER['REQUEST_METHOD'];
 
     if ($method === 'GET') {
+        // Bejegyzések lekérése
         $posts = [];
         $sql = "SELECT p.id, p.title, p.content, p.author, p.user_id, p.date 
                 FROM community_posts p 
@@ -32,49 +34,47 @@
     }
 
     if ($method === 'POST') {
+        // Új bejegyzés létrehozása
         $data = json_decode(file_get_contents('php://input'), true);
 
-        $title = trim($data['title'] ?? '');
-        $content = trim($data['content'] ?? '');
-        $author = trim($data['author'] ?? '');
+        $title = $conn->real_escape_string($data['title'] ?? '');
+        $content = $conn->real_escape_string($data['content'] ?? '');
+        $author = $conn->real_escape_string($data['author'] ?? '');
         $date = date('Y-m-d');
 
-        // 🔑 Elsőként a cookie-ból próbáljuk kinyerni a felhasználót
+        // Felhasználó azonosítása
+        $userId = 0; // default: vendég
         if (isset($_COOKIE['id']) && intval($_COOKIE['id']) > 0) {
             $userId = intval($_COOKIE['id']);
 
-            // Lekérdezzük az adatbázisból a username-et
+            // Ellenőrizzük, hogy tényleg létezik-e a user
             $stmt = $conn->prepare("SELECT username FROM users WHERE id = ? LIMIT 1");
             $stmt->bind_param("i", $userId);
             $stmt->execute();
             $result = $stmt->get_result();
+
             if ($row = $result->fetch_assoc()) {
                 $author = $row['username'];
             } else {
+                $userId = 0; 
                 $author = "Vendég";
-                $userId = "NULL";
             }
+            $stmt->close();
+        } elseif (isset($data['userId']) && intval($data['userId']) > 0) {
+            $userId = intval($data['userId']);
         } else {
-            // ha nincs cookie, akkor frontend által küldött adatok
-            $userId = isset($data['userId']) ? intval($data['userId']) : 0;
-            if ($userId <= 0) {
-                $author = "Vendég";
-                $userId = "NULL";
-            }
+            $author = "Vendég";
         }
 
-        // Kötelező mezők ellenőrzése
-        if (!$title || !$content || !$author) {
+        // Mezők ellenőrzése
+        if (!$title || !$content) {
             echo json_encode(["success" => false, "message" => "Hiányzó mezők!"]);
             exit;
         }
 
-        $titleSafe = $conn->real_escape_string($title);
-        $contentSafe = $conn->real_escape_string($content);
-        $authorSafe = $conn->real_escape_string($author);
-
+        // SQL beszúrás
         $sql = "INSERT INTO community_posts (title, content, author, user_id, date) 
-                VALUES ('$titleSafe', '$contentSafe', '$authorSafe', $userId, '$date')";
+                VALUES ('$title', '$content', '$author', $userId, '$date')";
 
         try {
             if ($conn->query($sql)) {

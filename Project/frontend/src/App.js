@@ -18,6 +18,8 @@ import ForgotPassword from './ForgotPassword';
 import AdminPanel from './AdminPanel';
 import ResetPassword from './ResetPassword';
 
+
+
 function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-50 to-blue-200 py-10 px-2 md:px-8">

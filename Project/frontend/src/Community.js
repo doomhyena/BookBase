@@ -1,35 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
 const API_BASE = "http://localhost/BookBase-Dev/Project/backend";
 
-const res = await fetch(`${API_BASE}/community_posts.php`, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  credentials: "include",
-  body: JSON.stringify(postData),
-});
-
 function Community() {
-  const [currentUser, setCurrentUser] = useState(null); // null = még nincs betöltve
+  const [currentUser, setCurrentUser] = useState(null);
   const [form, setForm] = useState({ title: '', content: '' });
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState({});
   const [commentForms, setCommentForms] = useState({});
   const [loading, setLoading] = useState(true);
 
-  // 1️⃣ Bejelentkezett felhasználó lekérése
+  // 1️⃣ Lekérjük a bejelentkezett user-t
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch(`${API_BASE}/userprofile.php?action=getCurrentUser`);
+        const res = await fetch(`${API_BASE}/userprofile.php?action=getCurrentUser`, {
+          credentials: 'include'
+        });
         const data = await res.json();
-        if (data.success) {
+        if (data.success && data.user) {
           setCurrentUser({ id: data.user.id, username: data.user.username });
         } else {
           setCurrentUser({ id: 0, username: 'Vendég' });
         }
       } catch (err) {
-        console.error('Hiba a felhasználó lekérésekor:', err);
+        console.error('Hiba a user lekérésekor:', err);
         setCurrentUser({ id: 0, username: 'Vendég' });
       }
     };
@@ -60,79 +56,76 @@ function Community() {
         setComments(commentsObj);
       }
     } catch (err) {
-      console.error('Hiba a bejegyzések vagy kommentek betöltésekor:', err);
+      console.error('Hiba a bejegyzések betöltésekor:', err);
     } finally {
       setLoading(false);
     }
   };
 
+  // 3️⃣ Poszt küldése
+  const handleSubmit = async e => {
+    e.preventDefault();
+    if (!form.title.trim() || !form.content.trim()) return;
 
-const handleSubmit = async e => {
-  e.preventDefault();
-  if (!form.title.trim() || !form.content.trim()) return;
+    const author = currentUser?.username || 'Vendég';
+    const userId = currentUser?.id > 0 ? currentUser.id : 0;
 
-  const author = currentUser?.username || 'Vendég';
-  const userId = currentUser?.id > 0 ? currentUser.id : 0; // ha nincs user, 0 lesz
-
-  try {
-    const res = await fetch(`${API_BASE}/community_posts.php`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        title: form.title,
-        content: form.content,
-        author,
-        userId,
-      }),
-    });
-    const data = await res.json();
-    console.log('POST response:', data);
-    if (data.success) {
-      setForm({ title: '', content: '' });
-      fetchPosts();
-    } else {
-      alert(data.message || 'Hiba a poszt létrehozásakor');
+    try {
+      const res = await fetch(`${API_BASE}/community_posts.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ title: form.title, content: form.content, author, userId })
+      });
+      const data = await res.json();
+      console.log('POST response:', data);
+      if (data.success) {
+        setForm({ title: '', content: '' });
+        fetchPosts();
+      } else {
+        alert(data.message || 'Hiba a poszt létrehozásakor');
+      }
+    } catch (err) {
+      console.error('Hiba a poszt mentésekor:', err);
     }
-  } catch (err) {
-    console.error('Hiba a bejegyzés mentésekor:', err);
-  }
-};
+  };
 
-// komment input változás kezelése
-const handleCommentChange = (postId, e) => {
-  setCommentForms(prev => ({
-    ...prev,
-    [postId]: { ...prev[postId], content: e.target.value }
-  }));
-};
+  // Komment input
+  const handleCommentChange = (postId, e) => {
+    setCommentForms(prev => ({
+      ...prev,
+      [postId]: { ...prev[postId], content: e.target.value }
+    }));
+  };
 
-// Komment küldése
-const handleCommentSubmit = async (postId, e) => {
-  e.preventDefault();
-  const content = commentForms[postId]?.content?.trim();
-  if (!content) return;
+  // Komment küldése
+  const handleCommentSubmit = async (postId, e) => {
+    e.preventDefault();
+    const content = commentForms[postId]?.content?.trim();
+    if (!content) return;
 
-  const author = currentUser?.username || 'Vendég';
-  const userId = currentUser?.id > 0 ? currentUser.id : 0;
+    const author = currentUser?.username || 'Vendég';
+    const userId = currentUser?.id > 0 ? currentUser.id : 0;
 
-  try {
-    const res = await fetch(`${API_BASE}/community_comments.php`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ postId, content, author, userId }),
-    });
-    const data = await res.json();
-    console.log('COMMENT response:', data);
-    if (data.success) {
-      setCommentForms({ ...commentForms, [postId]: { content: '' } });
-      fetchPosts();
-    } else {
-      alert(data.message || 'Hiba a komment létrehozásakor');
+    try {
+      const res = await fetch(`${API_BASE}/community_comments.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ postId, content, author, userId })
+      });
+      const data = await res.json();
+      console.log('COMMENT response:', data);
+      if (data.success) {
+        setCommentForms({ ...commentForms, [postId]: { content: '' } });
+        fetchPosts();
+      } else {
+        alert(data.message || 'Hiba a komment létrehozásakor');
+      }
+    } catch (err) {
+      console.error('Hiba a komment mentésekor:', err);
     }
-  } catch (err) {
-    console.error('Hiba a komment mentésekor:', err);
-  }
-};
+  };
 
   if (loading) return <div className="text-center text-2xl text-blue-700 py-10">Betöltés...</div>;
 

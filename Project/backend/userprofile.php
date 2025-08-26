@@ -1,13 +1,36 @@
 <?php
-    // CORS beállítások - mindig az elején, mielőtt bármi más történik
+    // CORS beállítások
     header_remove();
     header('Access-Control-Allow-Origin: http://localhost:3000');
     header('Access-Control-Allow-Credentials: true');
     header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
     header('Access-Control-Allow-Headers: Content-Type');
     header('Content-Type: application/json');
-    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(204); exit; }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+        http_response_code(204);
+        exit;
+    }
+
     require "db/db.php";
+
+    // --- GET Current User ---
+    if (isset($_GET['action']) && $_GET['action'] === 'getCurrentUser') {
+        if (isset($_COOKIE['id']) && $_COOKIE['id']) {
+            $userId = intval($_COOKIE['id']);
+            $sql = "SELECT id, username, email FROM users WHERE id = $userId LIMIT 1";
+            $res = $conn->query($sql);
+            if ($res && $res->num_rows > 0) {
+                $user = $res->fetch_assoc();
+                echo json_encode(['success' => true, 'user' => $user]);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Felhasználó nem található!']);
+            }
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Nincs bejelentkezve']);
+        }
+        exit;
+    }
     
     // API lekérdezés: csak JSON válasz
     if (isset($_GET['action']) && $_GET['action'] === 'getById' && isset($_GET['id'])) {
