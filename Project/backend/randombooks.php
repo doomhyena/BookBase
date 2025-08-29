@@ -11,11 +11,6 @@
         // Feltételezzük, hogy a db.php tartalmazza a $conn változót, ami az adatbázis kapcsolatot
         require  "db/db.php";
 
-        if(!isset($_COOKIE['id'])){ // Ellenőrzi, hogy létezik-e 'id' nevű süti (cookie)
-            echo json_encode(["success" => false, "message" => "Nincs bejelentkezett felhasználó!"]);
-            exit;
-        }
-
         // Véletlen könyvek lekérdezése (5 db)
         $sql = "SELECT * FROM books ORDER BY RAND() LIMIT 5";
         $result = $conn->query($sql);

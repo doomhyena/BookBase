@@ -11,7 +11,6 @@ function Community() {
   const [commentForms, setCommentForms] = useState({});
   const [loading, setLoading] = useState(true);
 
-  // 1️⃣ Lekérjük a bejelentkezett user-t
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -32,7 +31,6 @@ function Community() {
     fetchUser();
   }, []);
 
-  // 2️⃣ Bejegyzések lekérése
   useEffect(() => {
     fetchPosts();
   }, []);
@@ -62,7 +60,6 @@ function Community() {
     }
   };
 
-  // 3️⃣ Poszt küldése
   const handleSubmit = async e => {
     e.preventDefault();
     if (!form.title.trim() || !form.content.trim()) return;
@@ -78,7 +75,6 @@ function Community() {
         body: JSON.stringify({ title: form.title, content: form.content, author, userId })
       });
       const data = await res.json();
-      console.log('POST response:', data);
       if (data.success) {
         setForm({ title: '', content: '' });
         fetchPosts();
@@ -90,7 +86,6 @@ function Community() {
     }
   };
 
-  // Komment input
   const handleCommentChange = (postId, e) => {
     setCommentForms(prev => ({
       ...prev,
@@ -98,7 +93,6 @@ function Community() {
     }));
   };
 
-  // Komment küldése
   const handleCommentSubmit = async (postId, e) => {
     e.preventDefault();
     const content = commentForms[postId]?.content?.trim();
@@ -115,7 +109,6 @@ function Community() {
         body: JSON.stringify({ postId, content, author, userId })
       });
       const data = await res.json();
-      console.log('COMMENT response:', data);
       if (data.success) {
         setCommentForms({ ...commentForms, [postId]: { content: '' } });
         fetchPosts();
@@ -169,16 +162,50 @@ function Community() {
               <Link to={`/user/${post.user_id}`} className="font-semibold text-blue-600 hover:underline">{post.author}</Link> •{' '}
               <span>{new Date(post.date).toLocaleDateString()}</span>
             </div>
-            <div className="mb-4 text-gray-700 whitespace-pre-line">{post.content}</div>
+            <div className="text-gray-800 mb-4 whitespace-pre-wrap">{post.content}</div>
 
             {/* Kommentek */}
-            <div className="bg-gray-50 rounded-xl p-4">
-              <div className="text-base font-semibold text-blue-700 mb-2">Hozzászólások</div>
+            <div className="space-y-3 mt-4">
+              {(comments[post.id] && comments[post.id].length > 0) ? (
+                comments[post.id].map((comment) => (
+                  <div key={comment.id} className="bg-gray-50 rounded-lg shadow p-3 flex items-start gap-3">
+                    {/* Profilkép linkkel */}
+                    <Link to={`/user/${comment.user_id}`}>
+                      <img
+                        src={comment.profile_picture || "/default-avatar.png"}
+                        alt={comment.author}
+                        className="w-10 h-10 rounded-full object-cover border"
+                      />
+                    </Link>
+                    <div className="flex-1">
+                      {/* Komment fejléce */}
+                      <div className="flex items-center gap-2 text-sm mb-1">
+                        <Link
+                          to={`/user/${comment.user_id}`}
+                          className="font-semibold text-blue-600 hover:underline"
+                        >
+                          {comment.author}
+                        </Link>
+                        <span className="text-gray-400">•</span>
+                        <span className="text-gray-500 text-xs">
+                          {new Date(comment.date).toLocaleDateString()}
+                        </span>
+                      </div>
+                      {/* Komment tartalom */}
+                      <p className="text-gray-700 text-sm">{comment.content}</p>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="text-gray-400 text-sm italic">Még nincsenek kommentek.</div>
+              )}
+
+              {/* Új komment írása */}
               {currentUser && currentUser.id !== 0 ? (
-                <form className="flex flex-col md:flex-row gap-2 mb-2" onSubmit={e => handleCommentSubmit(post.id, e)}>
+                <form className="flex flex-col md:flex-row gap-2 mt-3" onSubmit={e => handleCommentSubmit(post.id, e)}>
                   <input
                     name="content"
-                    placeholder="Hozzászólás..."
+                    placeholder="Írj hozzászólást..."
                     value={commentForms[post.id]?.content || ''}
                     onChange={e => handleCommentChange(post.id, e)}
                     required
@@ -189,24 +216,8 @@ function Community() {
                   </button>
                 </form>
               ) : (
-                <div className="text-red-600 italic mb-2">Jelentkezz be a kommenteléshez!</div>
+                <div className="text-red-600 italic mt-2">Jelentkezz be a kommenteléshez!</div>
               )}
-
-              <div className="flex flex-col gap-2">
-                {(comments[post.id] || []).length === 0 ? (
-                  <div className="text-gray-400 italic">Még nincs hozzászólás.</div>
-                ) : (
-                  comments[post.id].map(comment => (
-                    <div key={comment.id} className="bg-white rounded-lg shadow p-2">
-                      <div className="text-xs text-gray-500 mb-1">
-                        <Link to={`/user/${comment.user_id}`} className="font-semibold text-blue-600 hover:underline">{comment.author}</Link> •{' '}
-                        <span>{new Date(comment.date).toLocaleDateString()}</span>
-                      </div>
-                      <div className="text-gray-700 text-sm">{comment.content}</div>
-                    </div>
-                  ))
-                )}
-              </div>
             </div>
           </div>
         ))}

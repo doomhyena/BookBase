@@ -1,5 +1,4 @@
 <?php
-    // CORS beállítások
     header_remove();
     header('Access-Control-Allow-Origin: http://localhost:3000');
     header('Access-Control-Allow-Credentials: true');
@@ -18,7 +17,7 @@
     if (isset($_GET['action']) && $_GET['action'] === 'getCurrentUser') {
         if (isset($_COOKIE['id']) && $_COOKIE['id']) {
             $userId = intval($_COOKIE['id']);
-            $sql = "SELECT id, username, email FROM users WHERE id = $userId LIMIT 1";
+            $sql = "SELECT id, username, email, profile_picture FROM users WHERE id = $userId LIMIT 1";
             $res = $conn->query($sql);
             if ($res && $res->num_rows > 0) {
                 $user = $res->fetch_assoc();
@@ -31,153 +30,172 @@
         }
         exit;
     }
-    
-    // API lekérdezés: csak JSON válasz
+
+    // --- GET User by ID ---
     if (isset($_GET['action']) && $_GET['action'] === 'getById' && isset($_GET['id'])) {
         $id = intval($_GET['id']);
         if (!$id) {
             echo json_encode(['success' => false, 'message' => 'Érvénytelen felhasználói azonosító!']);
             exit;
         }
-    $sql = "SELECT id, username, email, birthdate, gender, profile_picture, admin, created_at FROM users WHERE id = $id";
-        $eredmeny = $conn->query($sql);
-        if ($eredmeny && $eredmeny->num_rows > 0) {
-            $felhasznalo = $eredmeny->fetch_assoc();
-            
+
+        $sql = "SELECT id, username, email, birthdate, gender, profile_picture FROM users WHERE id = $id";
+        $res = $conn->query($sql);
+        if ($res && $res->num_rows > 0) {
+            $user = $res->fetch_assoc();
+
             // Legutóbb olvasott könyvek
-            $olvasasi_sql = "SELECT b.*, rh.read_date FROM reading_history rh 
-                            JOIN books b ON rh.book_id = b.id 
-                            WHERE rh.user_id = $id 
-                            ORDER BY rh.read_date DESC 
-                            LIMIT 5";
-            $olvasasi_eredmeny = $conn->query($olvasasi_sql);
-            
-            $olvasasi_konyvek = [];
-            if ($olvasasi_eredmeny && $olvasasi_eredmeny->num_rows > 0) {
-                while ($konyv = $olvasasi_eredmeny->fetch_assoc()) {
-                    $olvasasi_konyvek[] = [
-                        'id' => $konyv['id'],
-                        'title' => $konyv['title'],
-                        'author' => $konyv['author'],
-                        'cover' => $konyv['cover'],
-                        'read_date' => $konyv['read_date']
+            $historySql = "SELECT b.*, rh.read_date FROM reading_history rh 
+                        JOIN books b ON rh.book_id = b.id 
+                        WHERE rh.user_id = $id 
+                        ORDER BY rh.read_date DESC LIMIT 5";
+            $historyRes = $conn->query($historySql);
+            $recentlyRead = [];
+            if ($historyRes && $historyRes->num_rows > 0) {
+                while ($book = $historyRes->fetch_assoc()) {
+                    $recentlyRead[] = [
+                        'id' => $book['id'],
+                        'title' => $book['title'],
+                        'author' => $book['author'],
+                        'cover' => $book['cover'],
+                        'read_date' => $book['read_date']
                     ];
                 }
             }
-            
-            // Kedvenc könyvek
-            $kedvencek_sql = "SELECT b.* FROM favorites f 
-                              JOIN books b ON f.book_id = b.id 
-                              WHERE f.user_id = $id 
-                              ORDER BY f.created_at DESC 
-                              LIMIT 5";
-            $kedvencek_eredmeny = $conn->query($kedvencek_sql);
-            
-            $kedvencek = [];
-            if ($kedvencek_eredmeny && $kedvencek_eredmeny->num_rows > 0) {
-                while ($konyv = $kedvencek_eredmeny->fetch_assoc()) {
-                    $kedvencek[] = [
-                        'id' => $konyv['id'],
-                        'title' => $konyv['title'],
-                        'author' => $konyv['author'],
-                        'cover' => $konyv['cover']
+
+            // Kedvencek
+            $favSql = "SELECT b.* FROM favorites f 
+                    JOIN books b ON f.book_id = b.id 
+                    WHERE f.user_id = $id 
+                    ORDER BY f.created_at DESC LIMIT 5";
+            $favRes = $conn->query($favSql);
+            $favorites = [];
+            if ($favRes && $favRes->num_rows > 0) {
+                while ($book = $favRes->fetch_assoc()) {
+                    $favorites[] = [
+                        'id' => $book['id'],
+                        'title' => $book['title'],
+                        'author' => $book['author'],
+                        'cover' => $book['cover']
                     ];
                 }
             }
-            
-            $felhasznalo['recentlyRead'] = $olvasasi_konyvek;
-            $felhasznalo['favorites'] = $kedvencek;
-            
-            echo json_encode(['success' => true, 'user' => $felhasznalo]);
+
+            $user['recentlyRead'] = $recentlyRead;
+            $user['favorites'] = $favorites;
+
+            echo json_encode(['success' => true, 'user' => $user]);
         } else {
             echo json_encode(['success' => false, 'message' => 'A felhasználó nem található!']);
         }
         exit;
     }
-    
-    if (isset($_GET['action']) && $_GET['action'] === 'update') {
-        $input = json_decode(file_get_contents('php://input'), true);
-        // id-t elfogadjuk cookie-ból, POST body-ból vagy query-ből
-        $felhasznalo_id = $_COOKIE['id'] ?? ($input['id'] ?? ($_GET['id'] ?? null));
 
-        $email = $input['email'] ?? '';
-        $szuletesi_datum = $input['birthdate'] ?? '';
-        $nem = $input['gender'] ?? '';
-
-        if(!$felhasznalo_id || !$email || !$szuletesi_datum || !$nem){
-            echo json_encode(['success' => false, 'message' => 'Hiányzó adatok!']);
+    // --- UPDATE Profile + Profile Picture ---
+    if (isset($_GET['action']) && $_GET['action'] === 'updateProfile') {
+        $userId = $_COOKIE['id'] ?? null;
+        if (!$userId) {
+            echo json_encode(['success'=>false,'message'=>'Nincs bejelentkezve']);
             exit;
         }
 
-        // Email egyediség ellenőrzése (kivéve a saját email-jét)
-        $email_ellenorzes_sql = "SELECT id FROM users WHERE email='$email' AND id != $felhasznalo_id";
-        $email_ellenorzes_eredmeny = $conn->query($email_ellenorzes_sql);
+        $email = $_POST['email'] ?? '';
+        $birthdate = $_POST['birthdate'] ?? '';
+        $gender = $_POST['gender'] ?? '';
 
-        if($email_ellenorzes_eredmeny->num_rows > 0){
-            echo json_encode(['success' => false, 'message' => 'Már létezik ilyen email cím!']);
+        if (!$email || !$birthdate || !$gender) {
+            echo json_encode(['success'=>false,'message'=>'Hiányzó adatok!']);
             exit;
         }
 
-        $frissites_sql = "UPDATE users SET email='$email', birthdate='$szuletesi_datum', gender='$nem' WHERE id=$felhasznalo_id";
+        // Email egyediség
+        $res = $conn->query("SELECT id FROM users WHERE email='$email' AND id != $userId");
+        if ($res->num_rows > 0) {
+            echo json_encode(['success'=>false,'message'=>'Már létezik ilyen email cím!']);
+            exit;
+        }
 
-        if($conn->query($frissites_sql)){
-            echo json_encode(['success' => true, 'message' => 'Profil sikeresen frissítve!']);
+        // Profilkép feltöltés
+        $profile_picture_name = null;
+        if(isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] === 0) {
+            $userRes = $conn->query("SELECT username, profile_picture FROM users WHERE id=$userId");
+            $user = $userRes->fetch_assoc();
+            $target_dir = __DIR__ . "/users/" . $user['username'] . "/";
+            if(!is_dir($target_dir)) mkdir($target_dir, 0777, true);
+
+            // Régi kép törlése
+            if(!empty($user['profile_picture'])){
+                $oldFile = $target_dir . $user['profile_picture'];
+                if(file_exists($oldFile)) unlink($oldFile);
+            }
+
+            $profile_picture_name = basename($_FILES['profile_picture']['name']);
+            $target_file = $target_dir . $profile_picture_name;
+            if(!move_uploaded_file($_FILES['profile_picture']['tmp_name'], $target_file)){
+                echo json_encode(['success'=>false,'message'=>'Hiba történt a kép feltöltésekor!']);
+                exit;
+            }
+        }
+
+        // Adatbázis frissítés
+        $updateSql = "UPDATE users SET email='$email', birthdate='$birthdate', gender='$gender'";
+        if($profile_picture_name) $updateSql .= ", profile_picture='$profile_picture_name'";
+        $updateSql .= " WHERE id=$userId";
+
+        if($conn->query($updateSql)){
+            $userRes = $conn->query("SELECT id, username, email, birthdate, gender, profile_picture FROM users WHERE id=$userId");
+            $updatedUser = $userRes->fetch_assoc();
+            echo json_encode(['success'=>true,'message'=>'Profil sikeresen frissítve!','user'=>$updatedUser]);
         } else {
-            echo json_encode(['success' => false, 'message' => 'Hiba történt a profil frissítésekor!']);
+            echo json_encode(['success'=>false,'message'=>'Hiba történt a profil frissítésekor!']);
         }
         exit;
     }
-    
+
+    // --- CHANGE PASSWORD ---
     if (isset($_GET['action']) && $_GET['action'] === 'changePassword' && isset($_COOKIE['id'])) {
+        $userId = $_COOKIE['id'];
         $input = json_decode(file_get_contents('php://input'), true);
-        $felhasznalo_id = $_COOKIE['id'];
-        
-        $jelenlegi_jelszo = $input['current_password'] ?? '';
-        $uj_jelszo = $input['new_password'] ?? '';
-        $uj_jelszo_ujra = $input['new_password_again'] ?? '';
-        
-        if(!$jelenlegi_jelszo || !$uj_jelszo || !$uj_jelszo_ujra){
-            echo json_encode(['success' => false, 'message' => 'Hiányzó adatok!']);
+
+        $current_password = $input['current_password'] ?? '';
+        $new_password = $input['new_password'] ?? '';
+        $new_password_again = $input['new_password_again'] ?? '';
+
+        if(!$current_password || !$new_password || !$new_password_again){
+            echo json_encode(['success'=>false,'message'=>'Hiányzó adatok!']);
             exit;
         }
-        
-        // Jelenlegi jelszó ellenőrzése
-        $jelszo_ellenorzes_sql = "SELECT password FROM users WHERE id = $felhasznalo_id";
-        $jelszo_ellenorzes_eredmeny = $conn->query($jelszo_ellenorzes_sql);
-        
-        if($jelszo_ellenorzes_eredmeny->num_rows == 0){
-            echo json_encode(['success' => false, 'message' => 'Felhasználó nem található!']);
+
+        $res = $conn->query("SELECT password FROM users WHERE id=$userId");
+        if($res->num_rows === 0){
+            echo json_encode(['success'=>false,'message'=>'Felhasználó nem található!']);
             exit;
         }
-        
-        $jelenlegi_hash = $jelszo_ellenorzes_eredmeny->fetch_assoc()['password'];
-        
-        if(!password_verify($jelenlegi_jelszo, $jelenlegi_hash)){
-            echo json_encode(['success' => false, 'message' => 'A jelenlegi jelszó hibás!']);
+
+        $hash = $res->fetch_assoc()['password'];
+        if(!password_verify($current_password, $hash)){
+            echo json_encode(['success'=>false,'message'=>'A jelenlegi jelszó hibás!']);
             exit;
         }
-        
-        if($uj_jelszo !== $uj_jelszo_ujra){
-            echo json_encode(['success' => false, 'message' => 'Az új jelszavak nem egyeznek!']);
+
+        if($new_password !== $new_password_again){
+            echo json_encode(['success'=>false,'message'=>'Az új jelszavak nem egyeznek!']);
             exit;
         }
-        
-        if(strlen($uj_jelszo) < 6){
-            echo json_encode(['success' => false, 'message' => 'Az új jelszónak legalább 6 karakter hosszúnak kell lennie!']);
+
+        if(strlen($new_password) < 6){
+            echo json_encode(['success'=>false,'message'=>'Az új jelszónak legalább 6 karakter hosszúnak kell lennie!']);
             exit;
         }
-        
-        $titkositott_uj_jelszo = password_hash($uj_jelszo, PASSWORD_DEFAULT);
-        $jelszo_frissites_sql = "UPDATE users SET password='$titkositott_uj_jelszo' WHERE id=$felhasznalo_id";
-        
-        if($conn->query($jelszo_frissites_sql)){
-            echo json_encode(['success' => true, 'message' => 'Jelszó sikeresen megváltoztatva!']);
+
+        $new_hash = password_hash($new_password, PASSWORD_DEFAULT);
+        if($conn->query("UPDATE users SET password='$new_hash' WHERE id=$userId")){
+            echo json_encode(['success'=>true,'message'=>'Jelszó sikeresen megváltoztatva!']);
         } else {
-            echo json_encode(['success' => false, 'message' => 'Hiba történt a jelszó megváltoztatásakor!']);
+            echo json_encode(['success'=>false,'message'=>'Hiba történt a jelszó megváltoztatásakor!']);
         }
         exit;
     }
-    
-    echo json_encode(['success' => false, 'message' => 'Érvénytelen művelet!']);
-    exit;
 
+    echo json_encode(['success'=>false,'message'=>'Érvénytelen művelet!']);
+    exit;

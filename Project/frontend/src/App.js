@@ -86,7 +86,3 @@ function App() {
 }
 
 export default App;
-
-/* 
-npx tailwindcss -i ./src/tailwind.css -o ./src/output.css --watch 
-*/
