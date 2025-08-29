@@ -6,14 +6,14 @@ Egy könyvtár kezelő adatbázissal, ahol lehet könyveket nyilvántartani.
 
 ## Főbb funkciók
 
-- Profil testreszabása
+- Profil testreszabása (2)
 - Könyvek értékelése
-- Random könyv ajáánlása
+- Random könyv ajánlása
 - Bejegyzések létrehozása
 
 ## Főbb technológiai háttere:
 - Frontend: React.js
-- Backend: PHP
+- Backend: PHP, Rest API
 - Adatbázis: MySQL
 - Framework: Tailwind CSS
 - Fejlesztői környezet: XAMPP
@@ -25,6 +25,6 @@ A részletes telepítési és használati útmutató megtalálható a projekt do
 
 ```
 
-    Backend programozás és tesztelés: jegy szám (jegy leírva) százalék
+    IKT II.: jegy szám (jegy leírva) százalék
 
 ```
