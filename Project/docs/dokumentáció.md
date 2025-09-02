@@ -1,13 +1,9 @@
 <div align="center">
-
 <h1> BookBase </h1>
-
-<hr>
 
 A BookBase egy modern, felhasználóbarát online könyvplatform, amely lehetővé teszi a felhasználók számára könyvek böngészését, értékelését, közösségi interakciókat
 
 <br> ![BookBase Logó](img/logo.png)<br>
-
 </div>
 
 <div style="page-break-before: always;"></div>
@@ -15,7 +11,7 @@ A BookBase egy modern, felhasználóbarát online könyvplatform, amely lehetőv
 <div align="center">
 <h1> „Schola Europa Akadémia” Technikum, Gimnázium és Alapfokú Művészeti Iskola a Magyarországi Metodista Egyház fenntartásában </h1>
 
-<br> ![Schola Europa Akadémia logó](img/scholalogo.png)<br>
+<br> ![Schola Europa Akadémia logó](img/scholalogo.png) <br>
 
 **SZOFTVERFEJLESZTŐ ÉS -TESZTELŐ**<br>
 5 0613 12 03
@@ -26,7 +22,6 @@ Készítette:<br>
 Csontos Kincső 14/A/SZF <br>
 
 **2025**
-
 </div>
 
 <div style="page-break-before: always;"></div>
