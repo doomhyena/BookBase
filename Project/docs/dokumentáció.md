@@ -23,303 +23,13 @@ A BookBase egy modern, felhasználóbarát online könyvplatform, amely lehetőv
 Dokumentáció
 
 Készítette:<br>
-Csontos Kincső <br>
+Csontos Kincső 14/A/SZF <br>
 
 **2025**
 
 </div>
 
 <div style="page-break-before: always;"></div>
-
-# BookBase-Dev - Online Könyvplatform Dokumentáció
-## A dokumentáció minden fejezetét a projekt aktuális frontend és backend fájlstruktúrája, komponensei, API végpontjai, adatbázis sémája, technikai részletei alapján egészítettem ki. Minden információ a Tartalomjegyzék szerinti helyen található, duplikáció nélkül, logikusan elrendezve.
-
-## 2. Rendszerarchitektúra
-
-### 2.2. Komponensek (Részletes kiegészítés)
-
-#### Frontend főbb komponensek és funkciók:
-- App.js: Fő alkalmazás, React Router, oldalstruktúra, layout.
-- AdminPanel.js: Admin felület, könyv hozzáadás, admin jogosultság ellenőrzése, borítókép feltöltés.
-- BookDetails.js: Könyv részletek, értékelés, olvasási státusz, API hívások.
-- Books.js: Könyvlista, kereső, szűrők, toplisták, random könyvek.
-- Card.js: Általános kártya UI komponens, könyv, felhasználó, poszt megjelenítés.
-- Community.js: Közösségi posztok, kommentek, új poszt/komment létrehozása, API integráció.
-- Footer.js: Modern, reszponzív lábléc, linkek, copyright.
-- ForgotPassword.js: Jelszó visszaállítási folyamat, token kezelés.
-- Login.js: Bejelentkezési felület, cookie kezelés, hibakezelés.
-- Navbar.js: Felhasználói azonosítás, admin link, profil menü, cookie olvasás.
-- NewBooks.js: Új könyvek listázása.
-- ProfilePictureUpload.js: Profilkép feltöltés, preview, file input, mappa kezelés, noForm opció.
-- RecentlyRead.js: Legutóbb olvasott könyvek listázása.
-- RecommendedBooks.js: Ajánlott könyvek listázása.
-- Register.js: Regisztrációs felület, validáció, hibakezelés.
-- ResetPassword.js: Jelszó visszaállítás token alapján.
-- Search.js: Könyvkereső, szűrők, kategória, raktárkészlet.
-- Top20List.js: Top 20 könyv listázása.
-- UserProfile.js: Profil megtekintés/szerkesztés, email, jelszó, profilkép, egyedi CSS, bio, státusz.
-- output.css, tailwind.css: Tailwind CSS generált és forrás stílusfájlok.
-- setupTests.js, App.test.js: Tesztelés, Jest matcher bővítmények.
-- reportWebVitals.js: Web Vitals metrikák gyűjtése.
-- public/: Statikus fájlok (index.html, favicon, manifest, logo192.png, logo512.png, robots.txt).
-- uploads/: Könyvborítók és profilképek feltöltési mappája.
-- users/: Felhasználói mappák, profilképek tárolása.
-- img/: Dokumentációs és UI képek (logo.png, scholalogo.png).
-- README.md: Frontend projekt leírása, fejlesztési információk.
-- tailwind.config.js, postcss.config.js, tsconfig.json, package.json: Build és konfigurációs fájlok.
-
-#### Backend főbb fájlok és funkciók:
-- adminpanel.php: Könyv hozzáadás, borítókép feltöltés, admin jogosultság ellenőrzése.
-- bookdetails.php: Könyv részletek, értékelések lekérdezése, értékelés mentése.
-- community.php: Közösségi felhasználók listázása.
-- community_posts.php: Közösségi posztok lekérdezése/létrehozása.
-- community_comments.php: Kommentek lekérdezése/létrehozása, profilkép kezelése.
-- forgotpassword.php: Jelszó visszaállítás token generálása, email küldés.
-- index.php: Könyvlekérdezések (új, top20, random, összes, ID, keresés).
-- login.php: Bejelentkezés, cookie kezelés, jelszó ellenőrzés.
-- logout.php: Kijelentkezés, cookie törlés.
-- randombooks.php: Véletlenszerű könyvek lekérdezése.
-- ratings.php: Könyvértékelés mentése/frissítése.
-- reading_status.php: Olvasási státusz mentése/lekérdezése.
-- recentlyread.php: Legutóbb olvasott könyvek lekérdezése.
-- recommendedbooks.php: Ajánlott könyvek lekérdezése.
-- reg.php: Regisztráció, email/username egyediség, jelszó hash.
-- reset_password.php: Jelszó visszaállítás token alapján.
-- search.php: Könyvkeresés cím, szerző, kategória, raktárkészlet alapján.
-- test_cookie.php: Cookie tesztelés.
-- top20list.php: Top 20 könyv lekérdezése.
-- userprofile.php: Profil adatok lekérdezése/módosítása, profilkép, egyedi CSS, bio, státusz, jelszó/email módosítás.
-- db/db.php: Adatbázis kapcsolat, hibanaplózás, shutdown hiba kezelés.
-- db/db.sql: Adatbázis séma, táblák, mezők, kapcsolatok.
-- db/navbar.php: (Régi, HTML alapú navigáció, API-val nem használt)
-- uploads/: Könyvborítók, profilképek.
-- users/: Felhasználói mappák, profilképek.
-
-
-### 2.2. Komponensek (Kiegészítés)
-
-#### Frontend főbb komponensek:
-- Books.js: Könyvlista, kereső, szűrők
-- ProfilePictureUpload.js: Profilkép feltöltés, preview, file input, mappa kezelés
-- Card.js: Általános kártya komponens
-- Footer.js: Modern, reszponzív lábléc
-- setupTests.js, App.test.js, reportWebVitals.js: Tesztelés, teljesítménymérés
-- output.css, tailwind.css: Tailwind CSS stílusfájlok
-- public/: Statikus fájlok
-- uploads/: Könyvborítók, profilképek
-- users/: Felhasználói mappák, profilképek
-- img/: UI képek
-- README.md, tailwind.config.js, postcss.config.js, tsconfig.json, package.json: Build és konfiguráció
-
-#### Backend főbb fájlok:
-- Minden PHP végpont elején egységes CORS fejlécek
-- userprofile.php: Egyedi profil CSS kezelése (custom_css mező), profilkép, adatmódosítás
-- adminpanel.php: Könyv hozzáadás, borítókép feltöltés
-- community_posts.php, community_comments.php: Közösségi posztok, kommentek
-- ratings.php, recentlyread.php, recommendedbooks.php, top20list.php: Könyvértékelés, olvasási előzmények, toplisták
-
-### 2.3. Adatbázis Séma (Kiegészítés)
-
-#### Részletes adatbázis séma (2025.09.03, db.sql alapján)
-
-**users**
-- id INT PRIMARY KEY AUTO_INCREMENT
-- username VARCHAR(50) UNIQUE NOT NULL
-- birthdate DATE DEFAULT NULL
-- gender ENUM('ferfi','no','egyeb') DEFAULT NULL
-- email VARCHAR(100) UNIQUE NOT NULL
-- password VARCHAR(255) NOT NULL
-- profile_picture VARCHAR(255) DEFAULT NULL
-- admin TINYINT(1) DEFAULT 0
-- created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-- custom_css TEXT DEFAULT NULL
-
-**books**
-- id INT PRIMARY KEY AUTO_INCREMENT
-- title VARCHAR(255) NOT NULL
-- author VARCHAR(255) NOT NULL
-- summary TEXT NOT NULL
-- cover VARCHAR(255) DEFAULT NULL
-- category VARCHAR(100) DEFAULT 'Egyéb'
-- created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-
-**favorites**
-- id INT PRIMARY KEY AUTO_INCREMENT
-- user_id INT NOT NULL (FK users.id)
-- book_id INT NOT NULL (FK books.id)
-- created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-- UNIQUE(user_id, book_id)
-
-**reading_history**
-- user_id INT NOT NULL (FK users.id)
-- book_id INT NOT NULL (FK books.id)
-- status VARCHAR(255) DEFAULT NULL
-- created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-- PRIMARY KEY(user_id, book_id)
-
-**ratings**
-- id INT PRIMARY KEY AUTO_INCREMENT
-- book_id INT NOT NULL (FK books.id)
-- user_id INT NOT NULL (FK users.id)
-- rating INT CHECK (rating >= 1 AND rating <= 5) NOT NULL
-- created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-- UNIQUE(book_id, user_id)
-
-**community_posts**
-- id INT PRIMARY KEY AUTO_INCREMENT
-- title VARCHAR(255) NOT NULL
-- content TEXT NOT NULL
-- author VARCHAR(100) NOT NULL
-- user_id INT NOT NULL (FK users.id)
-- date DATE NOT NULL
-- created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-
-**community_comments**
-- id INT PRIMARY KEY AUTO_INCREMENT
-- post_id INT NOT NULL (FK community_posts.id)
-- content TEXT NOT NULL
-- author VARCHAR(100) NOT NULL
-- user_id INT NOT NULL (FK users.id)
-- date DATE NOT NULL
-- created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-
-**password_resets**
-- id INT PRIMARY KEY AUTO_INCREMENT
-- user_id INT DEFAULT NULL (FK users.id)
-- token VARCHAR(64) DEFAULT NULL
-- expires DATETIME DEFAULT NULL
-
-#### Kapcsolatok, indexek, constraint-ek
-- Minden FK mezőhöz ON DELETE CASCADE beállítás
-- Minden tábla megfelelő indexekkel, UNIQUE kulcsokkal
-- AUTO_INCREMENT mindenhol, ahol szükséges
-
-#### Példa rekordok, default értékek
-- A db.sql tartalmazza a legfontosabb mintarecordokat (pl. users, books, ratings, community_posts, community_comments, stb.)
-
-#### Funkcionális magyarázat
-- A users tábla tartalmazza a custom_css mezőt, amely lehetővé teszi a profil egyedi stílusát
-- A reading_history tábla status mezője az olvasási státuszt tárolja
-- A ratings tábla rating mezője csak 1-5 közötti értéket fogad el
-- Minden tábla kapcsolatai, constraint-jei biztosítják az adatintegritást
-
-- users: custom_css (TEXT) – egyedi profil CSS, admin (TINYINT), bio (TEXT), is_active (TINYINT), profile_picture (VARCHAR)
-- books: category (VARCHAR), stock (INT), cover (VARCHAR)
-- favorites, reading_history, ratings, community_posts, community_comments, password_resets: minden mező részletesen dokumentálva
-
-## 3. Frontend Architektúra
-
-### 3.1. Komponens Hierarchia (Kiegészítés)
-- App.js → Navbar.js, Footer.js, oldalstruktúra
-- Main Content → Home, Register, Login, Community, Search, Random, Top20List, BookDetails, UserProfile
-- Home → NewBooks, RecommendedBooks, RecentlyRead, Top20List
-- BookDetails → Ratings, ReadingStatus
-- Community → CommunityPosts, CommunityComments
-- UserProfile → EditEmail, ChangePassword, ProfilePictureUpload, CustomCSS
-
-### 3.4. UI/UX Design (Kiegészítés)
-- Minden főbb komponens Tailwind CSS utility-first stílusokat használ
-- Profil oldalon egyedi CSS szerkesztő textarea, preview, globális alkalmazás
-- Reszponzív, mobilbarát layout minden oldalon
-
-
-### Egyedi profil CSS
-A UserProfile.js komponensben a felhasználó szerkesztheti a saját profiljához tartozó egyedi CSS-t, amely a users táblában custom_css mezőben tárolódik. A profil oldal betöltésekor a CSS automatikusan alkalmazásra kerül, így minden felhasználó egyedivé teheti a profilja kinézetét.
-
-## 4. Backend Architektúra
-
-### 4.1. API Réteg (Kiegészítés)
-- Minden PHP végpont elején egységes CORS fejlécek
-- Minden API válasz JSON formátumú, success/message/data mezőkkel
-- Cookie alapú autentikáció, admin jogosultság ellenőrzés
-- Token alapú jelszó visszaállítás (forgotpassword.php, reset_password.php)
-
-### 4.4. Fájlkezelés (Kiegészítés)
-- uploads/: Könyvborítók, profilképek, időbélyeges fájlnév
-- users/: Felhasználói mappák, profilképek, régi kép törlése
-- Fájl elérési út mentése adatbázisba (books.cover, users.profile_picture)
-
-
-### Egyedi profil CSS backend
-A userprofile.php végpont kezeli a custom_css mező mentését és lekérdezését. A mező tartalma a profil oldal betöltésekor kerül alkalmazásra a frontendben.
-
-## 5. Biztonság
-### 5.1. Autentikáció (Kiegészítés)
-- login.php: Jelszó hash ellenőrzés, cookie beállítás
-- reg.php: Jelszó hash mentés, email/username egyediség
-- logout.php: Cookie törlés
-- userprofile.php: Jelszó/email módosítás, profilkép feltöltés
-
-### 5.3. CORS Beállítások (Kiegészítés)
-- header('Access-Control-Allow-Origin: http://localhost:3000');
-- header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-- header('Access-Control-Allow-Headers: Content-Type');
-- header('Access-Control-Allow-Credentials: true');
-- header('Content-Type: application/json');
-
-
-### Biztonsági javaslatok
-- Mindenhol prepared statement használata javasolt az SQL injection elkerülésére.
-- Jelszavak hash-elése, token alapú jelszó visszaállítás, admin jogok ellenőrzése, CORS beállítások, cookie alapú autentikáció.
-- HTTPS bevezetése, naplózás, hibatűrés, monitoring.
-
-## 10. Fejlesztői Dokumentáció
-
-### Fejlesztői javaslatok
-- Modularizált React komponensek, prop validáció, TypeScript vagy PropTypes használata.
-- Kódolási konvenciók: PSR-12 (PHP), funkcionális komponensek (React), Tailwind CSS utility-first.
-- Verziókezelés: Git, feature branch workflow, leíró commit üzenetek.
-- CI/CD pipeline, automatizált tesztelés, staging környezet.
-
-## 8. API Dokumentáció
-
-### API példák
-- Minden végponthoz részletes példák, request/response minták, paraméterek, jogosultságok.
-- Felhasználói, könyv, közösségi, admin, értékelés, olvasási előzmények, általános API hívások.
-
-## 7. Deployment
-
-### Deployment
-- XAMPP, Apache, MySQL, Node.js, npm, manual/automated deployment, környezeti változók, .env fájlok, monitoring, szerver logok.
-
-## 6. Tesztelés
-### 6.1. Manuális Tesztek (Kiegészítés)
-- Regisztráció, bejelentkezés, jelszó visszaállítás, profil módosítás, könyv böngészés, értékelés, keresés, közösségi funkciók, admin funkciók, fájl feltöltés, reszponzivitás, hibakezelés
-
-### 7.1. Környezetek (Kiegészítés)
-- Fejlesztői: XAMPP, lokális gép
-- Tesztelési: Jövőben tervezett staging
-- Produkciós: Éles szerver
-
-### 7.4. Hibaelhárítás (Kiegészítés)
-- Adatbázis kapcsolat, fájl feltöltés, bejelentkezés, API hibák, böngésző konzol, szerver logok
-
-### 8.1. Felhasználói Végpontok (Kiegészítés)
-- reg.php, login.php, logout.php, userprofile.php, edit_email.php, forgotpassword.php, reset_password.php, test_cookie.php
-
-### 8.2. Könyv Végpontok (Kiegészítés)
-- index.php, bookdetails.php, randombooks.php, recommendedbooks.php, search.php, top20list.php
-
-### 8.3. Közösségi Végpontok (Kiegészítés)
-- community.php, community_posts.php, community_comments.php
-
-### 8.4. Admin Végpontok (Kiegészítés)
-- adminpanel.php
-
-### 8.5. Értékelés Végpontok (Kiegészítés)
-- ratings.php
-
-### 8.6. Olvasási Előzmények Végpontok (Kiegészítés)
-- recentlyread.php, reading_status.php
-
-
-### Hibakezelés
-- Részletes hibanaplózás (php_error.log), böngésző konzol, Network fül, API válaszok, hibaüzenetek, reszponzív visszajelzések.
-
-## 11. Jövőbeli tervek
-
-### Jövőbeli tervek
-- Dark mode, többnyelvűség, mobil app, push értesítések, külső API integráció, fejlettebb kereső, ajánlórendszer, admin eszközök, statisztikák, teljesítményoptimalizálás, biztonság.
 
 ## Tartalomjegyzék
 
@@ -387,7 +97,7 @@ A userprofile.php végpont kezeli a custom_css mező mentését és lekérdezés
     
 12. [Licensz](#12-licensz)
 
----
+<div style="page-break-before: always;"></div>
 
 ## 1. Bevezetés
 
@@ -435,7 +145,6 @@ php backend és a User Profile.js frontend komponens segítségével. A cél, ho
 - Processzor (CPU): AMD Ryzen 5 7235HS
 - RAM: 16GB DDR5 4800 MHz
 
----
 
 ## 2. Rendszerarchitektúra
 
@@ -461,50 +170,66 @@ graph TD
 
 ### 2.2. Komponensek
 
-#### Frontend
-- `App.js`: Fő alkalmazás, routing
-- `Navbar.js`: Felhasználói azonosítást végez cookie alapján, kezeli az admin jogosultságok megjelenítését, és biztosítja a profil menü funkcióit.
-- `Books.js`, `BookDetails.js`: Könyvlista, részletek
-- `UserProfile.js`: Felhasználói profil megtekintése és szerkesztése, beleértve az email, jelszó és profilkép módosítását.
-- `Community.js`: Kezeli a közösségi bejegyzések és kommentek megjelenítését, új posztok és kommentek létrehozását, valamint a kapcsolódó állapotokat és API hívásokat.
-- `AdminPanel.js`: Admin felület
-- `Login.js`: Bejelentkezési felület
-- `Register.js`: Regisztrációs felület
-- `Search.js`: Könyvkereső felület
-- `Random.js`: Véletlenszerű könyvek megjelenítése
-- `RecentlyRead.js`: Legutóbb olvasott könyvek listázása
-- `NewBooks.js`: Újonnan hozzáadott könyvek listázása
-- `RecommendedBooks.js`: Ajánlott könyvek listázása
-- `Top20List.js`: Top 20 könyv listázása
-- `Card.js`: Általános kártya komponens
-- `Footer.js`: Lábléc
+#### Frontend főbb komponensek és funkciók:
 
-#### Backend
+- App.js: Fő alkalmazás, React Router, oldalstruktúra, layout.
+- AdminPanel.js: Admin felület, könyv hozzáadás, admin jogosultság ellenőrzése, borítókép feltöltés.
+- BookDetails.js: Könyv részletek, értékelés, olvasási státusz, API hívások.
+- Books.js: Könyvlista, kereső, szűrők, toplisták, random könyvek.
+- Card.js: Általános kártya UI komponens, könyv, felhasználó, poszt megjelenítés.
+- Community.js: Közösségi posztok, kommentek, új poszt/komment létrehozása, API integráció.
+- Footer.js: Modern, reszponzív lábléc, linkek, copyright.
+- ForgotPassword.js: Jelszó visszaállítási folyamat, token kezelés.
+- Login.js: Bejelentkezési felület, cookie kezelés, hibakezelés.
+- Navbar.js: Felhasználói azonosítás, admin link, profil menü, cookie olvasás.
+- NewBooks.js: Új könyvek listázása.
+- ProfilePictureUpload.js: Profilkép feltöltés, preview, file input, mappa kezelés, noForm opció.
+- RecentlyRead.js: Legutóbb olvasott könyvek listázása.
+- RecommendedBooks.js: Ajánlott könyvek listázása.
+- Register.js: Regisztrációs felület, validáció, hibakezelés.
+- ResetPassword.js: Jelszó visszaállítás token alapján.
+- Search.js: Könyvkereső, szűrők, kategória, raktárkészlet.
+- Top20List.js: Top 20 könyv listázása.
+- UserProfile.js: Profil megtekintés/szerkesztés, email, jelszó, profilkép, egyedi CSS, bio, státusz.
+- output.css, tailwind.css: Tailwind CSS generált és forrás stílusfájlok.
+- setupTests.js, App.test.js: Tesztelés, Jest matcher bővítmények.
+- reportWebVitals.js: Web Vitals metrikák gyűjtése.
+- public/: Statikus fájlok (index.html, favicon, manifest, logo192.png, logo512.png, robots.txt).
+- uploads/: Könyvborítók és profilképek feltöltési mappája.
+- users/: Felhasználói mappák, profilképek tárolása.
+- img/: Dokumentációs és UI képek (logo.png, scholalogo.png).
+- README.md: Frontend projekt leírása, fejlesztési információk.
+- tailwind.config.js, postcss.config.js, tsconfig.json, package.json: Build és konfigurációs fájlok.
+
+#### Backend főbb fájlok és funkciók:
 
 Minden backend PHP fájl elején egységes CORS fejlécek találhatók, amelyek biztosítják a frontend és backend közötti biztonságos kommunikációt cookie-kal együtt. A cookie alapú autentikáció a legtöbb érzékeny műveletnél ellenőrzésre kerül.
 
-- `index.php`: Fő API belépési pont, általános könyvlekérdezések (új, top20, random, összes, ID alapján, keresés)
-- `login.php`: Felhasználói bejelentkezés kezelése
-- `reg.php`: Felhasználói regisztráció kezelése
-- `logout.php`: Felhasználói kijelentkezés kezelése
-- `bookdetails.php`: Egyedi könyv részleteinek lekérdezése és értékelések kezelése
-- `randombooks.php`: Véletlenszerű könyvek lekérdezése
-- `top20list.php`: Top 20 legmagasabb értékelésű könyv lekérdezése
-- `userprofile.php`: Felhasználói profil adatok lekérdezése és módosítása, profilkép feltöltés, jelszóváltoztatás
-- `edit_email.php`: Felhasználói email cím módosítása
-- `forgotpassword.php`: Elfelejtett jelszó kezelése (token generálás)
-- `reset_password.php`: Jelszó visszaállítása token alapján
-- `community.php`: Közösségi felhasználók listázása
-- `community_posts.php`: Közösségi bejegyzések lekérdezése és létrehozása
-- `community_comments.php`: Közösségi bejegyzésekhez tartozó kommentek lekérdezése és létrehozása
-- `adminpanel.php`: Adminisztrációs felület könyvek hozzáadására
-- `ratings.php`: Könyvértékelések mentése és frissítése
-- `recentlyread.php`: Legutóbb olvasott könyvek lekérdezése
-- `recommendedbooks.php`: Ajánlott könyvek lekérdezése
-- `search.php`: Könyvek keresése cím, szerző, kategória és raktárkészlet alapján
-- `test_cookie.php`: Cookie tesztelésére szolgáló végpont
-- `db/db.php`: Adatbázis kapcsolat kezelése, hiba naplózás
-- `db/navbar.php`: (Régi, HTML alapú navigáció, API-val nem használt)
+- adminpanel.php: Könyv hozzáadás, borítókép feltöltés, admin jogosultság ellenőrzése.
+- bookdetails.php: Könyv részletek, értékelések lekérdezése, értékelés mentése.
+- community.php: Közösségi felhasználók listázása.
+- community_posts.php: Közösségi posztok lekérdezése/létrehozása.
+- community_comments.php: Kommentek lekérdezése/létrehozása, profilkép kezelése.
+- forgotpassword.php: Jelszó visszaállítás token generálása, email küldés.
+- index.php: Könyvlekérdezések (új, top20, random, összes, ID, keresés).
+- login.php: Bejelentkezés, cookie kezelés, jelszó ellenőrzés.
+- logout.php: Kijelentkezés, cookie törlés.
+- randombooks.php: Véletlenszerű könyvek lekérdezése.
+- ratings.php: Könyvértékelés mentése/frissítése.
+- reading_status.php: Olvasási státusz mentése/lekérdezése.
+- recentlyread.php: Legutóbb olvasott könyvek lekérdezése.
+- recommendedbooks.php: Ajánlott könyvek lekérdezése.
+- reg.php: Regisztráció, email/username egyediség, jelszó hash.
+- reset_password.php: Jelszó visszaállítás token alapján.
+- search.php: Könyvkeresés cím, szerző, kategória, raktárkészlet alapján.
+- test_cookie.php: Cookie tesztelés.
+- top20list.php: Top 20 könyv lekérdezése.
+- userprofile.php: Profil adatok lekérdezése/módosítása, profilkép, egyedi CSS, bio, státusz, jelszó/email módosítás.
+- db/db.php: Adatbázis kapcsolat, hibanaplózás, shutdown hiba kezelés.
+- db/db.sql: Adatbázis séma, táblák, mezők, kapcsolatok.
+- db/navbar.php: (Régi, HTML alapú navigáció, API-val nem használt)
+- uploads/: Könyvborítók, profilképek.
+- users/: Felhasználói mappák, profilképek.
 
 ### 2.3. Adatbázis Séma
 
@@ -524,100 +249,143 @@ CREATE TABLE `users` (
   `custom_css` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
-CREATE TABLE `books` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `author` varchar(255) NOT NULL,
-  `summary` text NOT NULL,
-  `cover` varchar(255) DEFAULT NULL,
-  `category` varchar(100) DEFAULT 'Egyéb',
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+  #### Részletes adatbázis séma (2025.09.03, db.sql alapján)
 
-CREATE TABLE `favorites` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `book_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_favorite` (`user_id`,`book_id`),
-  KEY `book_id` (`book_id`),
-  CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `favorites_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+  ```sql
+  CREATE TABLE `users` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `username` varchar(50) NOT NULL,
+    `birthdate` date DEFAULT NULL,
+    `gender` enum('ferfi','no','egyeb') DEFAULT NULL,
+    `email` varchar(100) NOT NULL,
+    `password` varchar(255) NOT NULL,
+    `profile_picture` varchar(255) DEFAULT NULL,
+    `admin` tinyint(1) DEFAULT 0,
+    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+    `custom_css` text DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `username` (`username`),
+    UNIQUE KEY `email` (`email`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
-CREATE TABLE `reading_history` (
-  `user_id` int(11) NOT NULL,
-  `book_id` int(11) NOT NULL,
-  `status` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`user_id`,`book_id`),
-  KEY `book_id` (`book_id`),
-  CONSTRAINT `reading_history_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `reading_history_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+  CREATE TABLE `books` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `title` varchar(255) NOT NULL,
+    `author` varchar(255) NOT NULL,
+    `summary` text NOT NULL,
+    `cover` varchar(255) DEFAULT NULL,
+    `category` varchar(100) DEFAULT 'Egyéb',
+    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+    PRIMARY KEY (`id`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
-CREATE TABLE `ratings` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `book_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `rating` int(11) NOT NULL CHECK (`rating` >= 1 and `rating` <= 5),
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_rating` (`book_id`,`user_id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `ratings_ibfk_1` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `ratings_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+  CREATE TABLE `favorites` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `user_id` int(11) NOT NULL,
+    `book_id` int(11) NOT NULL,
+    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `unique_favorite` (`user_id`,`book_id`),
+    KEY `book_id` (`book_id`),
+    CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+    CONSTRAINT `favorites_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
-CREATE TABLE `community_posts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `content` text NOT NULL,
-  `author` varchar(100) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `community_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+  CREATE TABLE `reading_history` (
+    `user_id` int(11) NOT NULL,
+    `book_id` int(11) NOT NULL,
+    `status` varchar(255) DEFAULT NULL,
+    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+    PRIMARY KEY (`user_id`,`book_id`),
+    KEY `book_id` (`book_id`),
+    CONSTRAINT `reading_history_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+    CONSTRAINT `reading_history_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
-CREATE TABLE `community_comments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `post_id` int(11) NOT NULL,
-  `content` text NOT NULL,
-  `author` varchar(100) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`),
-  KEY `post_id` (`post_id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `community_comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `community_posts` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `community_comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+  CREATE TABLE `ratings` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `book_id` int(11) NOT NULL,
+    `user_id` int(11) NOT NULL,
+    `rating` int(11) NOT NULL CHECK (`rating` >= 1 and `rating` <= 5),
+    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `unique_rating` (`book_id`,`user_id`),
+    KEY `user_id` (`user_id`),
+    CONSTRAINT `ratings_ibfk_1` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE,
+    CONSTRAINT `ratings_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
-CREATE TABLE `password_resets` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
-  `token` varchar(64) DEFAULT NULL,
-  `expires` datetime DEFAULT NULL,
+  CREATE TABLE `community_posts` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `title` varchar(255) NOT NULL,
+    `content` text NOT NULL,
+    `author` varchar(100) NOT NULL,
+    `user_id` int(11) NOT NULL,
+    `date` date NOT NULL,
+    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+    PRIMARY KEY (`id`),
+    KEY `user_id` (`user_id`),
+    CONSTRAINT `community_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+  CREATE TABLE `community_comments` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `post_id` int(11) NOT NULL,
+    `content` text NOT NULL,
+    `author` varchar(100) NOT NULL,
+    `user_id` int(11) NOT NULL,
+    `date` date NOT NULL,
+    `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+    PRIMARY KEY (`id`),
+    KEY `post_id` (`post_id`),
+    KEY `user_id` (`user_id`),
+    CONSTRAINT `community_comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `community_posts` (`id`) ON DELETE CASCADE,
+    CONSTRAINT `community_comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+  CREATE TABLE `password_resets` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `user_id` int(11) DEFAULT NULL,
+    `token` varchar(64) DEFAULT NULL,
+    `expires` datetime DEFAULT NULL,
+    PRIMARY KEY (`id`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+  ```
+
+  **Kapcsolatok, indexek, constraint-ek:**
+  - Minden FK mezőhöz ON DELETE CASCADE beállítás
+  - Minden tábla megfelelő indexekkel, UNIQUE kulcsokkal
+  - AUTO_INCREMENT mindenhol, ahol szükséges
+
+  **Funkcionális magyarázat:**
+  - A users tábla tartalmazza a custom_css mezőt, amely lehetővé teszi a profil egyedi stílusát
+  - A reading_history tábla status mezője az olvasási státuszt tárolja
+  - A ratings tábla rating mezője csak 1-5 közötti értéket fogad el
+  - Minden tábla kapcsolatai, constraint-jei biztosítják az adatintegritást
+```
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 ```
 
-Kapcsolatok:
+#### Kapcsolatok:
 - Egy user több könyvet olvashat/kedvelhet
 - Könyvekhez borítókép, leírás, szerző, kategória és raktárkészlet tartozik
 - Értékelések kapcsolódnak könyvekhez és felhasználókhoz
 - Közösségi bejegyzések és kommentek kapcsolódnak felhasználókhoz
 
----
+#### Példa rekordok, default értékek
+- A db.sql tartalmazza a legfontosabb mintarecordokat (pl. users, books, ratings, community_posts, community_comments, stb.)
+
+#### Funkcionális magyarázat
+- A users tábla tartalmazza a custom_css mezőt, amely lehetővé teszi a profil egyedi stílusát
+- A reading_history tábla status mezője az olvasási státuszt tárolja
+- A ratings tábla rating mezője csak 1-5 közötti értéket fogad el
+- Minden tábla kapcsolatai, constraint-jei biztosítják az adatintegritást
+
+- users: custom_css (TEXT) – egyedi profil CSS, admin (TINYINT), bio (TEXT), is_active (TINYINT), profile_picture (VARCHAR)
+- books: category (VARCHAR), stock (INT), cover (VARCHAR)
+- favorites, reading_history, ratings, community_posts, community_comments, password_resets: minden mező részletesen dokumentálva
 
 ## 3. Frontend Architektúra
 
@@ -650,6 +418,13 @@ graph TD
 	 B --> B1[UserDropdown]
 	 B --> B2[AdminLink]
 ```
+
+- App.js → Navbar.js, Footer.js, oldalstruktúra
+- Main Content → Home, Register, Login, Community, Search, Random, Top20List, BookDetails, UserProfile
+- Home → NewBooks, RecommendedBooks, RecentlyRead, Top20List
+- BookDetails → Ratings, ReadingStatus
+- Community → CommunityPosts, CommunityComments
+- UserProfile → EditEmail, ChangePassword, ProfilePictureUpload, CustomCSS
 
 ### 3.2. Állapotkezelés
 
@@ -686,7 +461,8 @@ olvasásával végzi, amely meghatározza a megjelenített menüpontokat és jog
 - **Felhasználóbarát formok és visszajelzések**: Az űrlapok egyszerűek és intuitívak, a felhasználói interakciókhoz (pl. sikeres regisztráció, hibaüzenetek) megfelelő visszajelzések tartoznak.
 - **Reszponzív design**: A felület alkalmazkodik a különböző képernyőméretekhez (mobil, tablet, desktop), biztosítva az optimális felhasználói élményt minden eszközön.
 
----
+#### Egyedi profil CSS
+A UserProfile.js komponensben a felhasználó szerkesztheti a saját profiljához tartozó egyedi CSS-t, amely a users táblában custom_css mezőben tárolódik. A profil oldal betöltésekor a CSS automatikusan alkalmazásra kerül, így minden felhasználó egyedivé teheti a profilja kinézetét.
 
 ## 4. Backend Architektúra
 
@@ -754,8 +530,6 @@ A profilképek és könyvborítók feltöltése során a fájlok elnevezése id�
     - Hasonlóan ellenőrzi a fájltípust és létrehozza a mappát, ha szükséges.
 - **Fájl elérési út tárolása**: A feltöltött fájlok elérési útja az adatbázisban kerül tárolásra (pl. `books.cover`, `users.profile_picture`).
 
----
-
 ## 5. Biztonság
 
 ### 5.1. Autentikáció
@@ -800,6 +574,11 @@ amely a `forgotpassword.php` és `reset_password.php` végpontokon keresztül va
     ```
 - Ezek a beállítások biztosítják, hogy a frontend alkalmazás (amely `http://localhost:3000`-en fut) kommunikálhasson a backenddel, és küldhessen/fogadhasson cookie-kat (pl. a felhasználói `id` cookie-t) a hitelesített kérésekhez.
 - Az `OPTIONS` metódus kezelése (preflight kérések) is implementálva van több végponton (pl. `login.php`, `community_comments.php`, `community_posts.php`, `ratings.php`, `recentlyread.php`, `recommendedbooks.php`, `search.php`, `userprofile.php`), ami szükséges a komplexebb HTTP kérések (pl. `POST` JSON body-val) megfelelő működéséhez.
+
+### Biztonsági javaslatok
+- Mindenhol prepared statement használata javasolt az SQL injection elkerülésére.
+- Jelszavak hash-elése, token alapú jelszó visszaállítás, admin jogok ellenőrzése, CORS beállítások, cookie alapú autentikáció.
+- HTTPS bevezetése, naplózás, hibatűrés, monitoring.
 
 ## 6. Tesztelés
 
@@ -941,32 +720,36 @@ Minden API végpont JSON formátumban ad vissza választ, `success` (boolean) é
 | `/backend/db/db.php` | N/A | Adatbázis kapcsolat ellenőrzése és hiba naplózás. | N/A | `{ "success": false, "message": "Kapcsolat sikertelen! ..." }` (hiba esetén) |
 
 ## 9. Felhasználói Dokumentáció
-### 9.1. Telepítési Útmutató (Kiegészítés)
-- XAMPP telepítés, backend mappa htdocs-ba, frontend mappa, adatbázis import, npm install, npm start, Apache indítás
 
-### 9.3. Hibaelhárítási Útmutató (Kiegészítés)
-- Adatbázis, fájlok, port, böngésző konzol, szerver logok
+### 9.1. Telepítési Útmutató
 
-### 10.1. Fejlesztői Környezet Beállítása (Kiegészítés)
-- XAMPP, Git klónozás, backend/htdocs, frontend/npm install, npm start, környezeti változók
-
-### 10.3. Verziókezelési Stratégia (Kiegészítés)
-- Git, feature branch, main stabil, leíró commit üzenetek
-
-### 11.1. Felhasználói élmény fejlesztése (Kiegészítés)
-- Reszponzív design, dark mode, többnyelvűség, profil bővítés
-
-### 11.2. Funkcionális bővítések (Kiegészítés)
-- Fejlettebb kereső, ajánlórendszer, közösségi funkciók, értékelési rendszer
-
-### 11.3. Biztonság és teljesítmény (Kiegészítés)
-- Backend refaktorálás, HTTPS, cache, lazy loading, monitoring
-
-### 11.4. Adminisztrációs eszközök fejlesztése (Kiegészítés)
-- Részletes admin felület, moderáció, statisztikák
-
-### 11.5. Integrációk és mobil támogatás (Kiegészítés)
-- Külső API integráció, mobil app, push értesítések
+1. **XAMPP telepítése**: Töltse le és telepítse az XAMPP-ot (Apache, MySQL, PHP) a hivatalos weboldalról.
+2. **Projekt mappák bemásolása**:
+    - Másolja a `backend` mappát az XAMPP `htdocs` könyvtárába (pl. `C:\xampp\htdocs\BookBase-Dev\backend`).
+    - Másolja a `frontend` mappát egy tetszőleges helyre (pl. `C:\BookBase-Dev\frontend`).
+3. **Adatbázis importálása**:
+    - Indítsa el az Apache és MySQL szolgáltatásokat az XAMPP vezérlőpultján.
+    - Nyissa meg a böngészőben a `http://localhost/phpmyadmin` címet.
+    - Hozzon létre egy új adatbázist `bookbase` néven.
+    - Importálja a `backend/db/db.sql` fájlt az újonnan létrehozott `bookbase` adatbázisba.
+4. **Szükséges csomagok telepítése frontendhez**:
+    - Nyisson meg egy parancssort (CMD vagy PowerShell) és navigáljon a `frontend` mappa gyökerébe:
+        ```bash
+        cd C:\BookBase-Dev\frontend
+        ```
+    - Telepítse a szükséges Node.js csomagokat:
+        ```bash
+        npm install
+        ```
+5. **Frontend fejlesztői szerver indítása**:
+    - Ugyanebben a parancssorban indítsa el a React fejlesztői szervert:
+        ```bash
+        npm start
+        ```
+    - Ez általában automatikusan megnyitja a böngészőben a `http://localhost:3000` címet.
+6. **Backend szerver elérése**:
+    - Győződjön meg róla, hogy az Apache fut az XAMPP-ban.
+    - A backend API-k a `http://localhost/BookBase-Dev/backend/` címen keresztül érhetők el.
 
 ### 9.1. Telepítési Útmutató
 
@@ -1062,7 +845,7 @@ PHP fájlokban egységes CORS fejlécek használata kötelező, és a biztonság
 1. **XAMPP telepítése**: Telepítse az XAMPP-ot a PHP, Apache és MySQL futtatásához.
 2. **Git klónozás**: Klónozza a projekt repository-ját:
     ```bash
-    git clone <repository_url> BookBase-Dev
+    git clone https://github.com/doomhyena/BookBase-Dev.git 
     ```
 3. **Backend beállítása**:
     - Helyezze a `backend` mappát az XAMPP `htdocs` könyvtárába (pl. `C:\xampp\htdocs\BookBase-Dev\backend`).
@@ -1104,7 +887,6 @@ PHP fájlokban egységes CORS fejlécek használata kötelező, és a biztonság
     - A `main` branch mindig stabil és deployolható állapotban van.
     - A feature branch-eket a `main` branch-be kell merge-elni `pull request` (vagy `merge request`) és `code review` után.
 - **Commit üzenetek**: Használjon leíró és konzisztens commit üzeneteket (pl. "feat: Új felhasználói regisztráció implementálása", "fix: Bejelentkezési hiba javítása").
-
 
 ## 11. Jövőbeli Tervek
 
