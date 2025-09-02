@@ -10,7 +10,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         echo json_encode(['success' => false, 'error' => 'Csak POST kérés engedélyezett.']);
-        
+        exit;
     }
 
     $input = json_decode(file_get_contents('php://input'), true);
@@ -18,15 +18,18 @@
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo json_encode(['success' => false, 'error' => 'Érvénytelen email cím!']);
-        
+        exit;
     }
 
     // Ellenőrizzük, hogy van-e ilyen email a users táblában
-    $stmt = $conn->require('SELECT id, username FROM users WHERE email = ?');
+    $stmt = $conn->prepare('SELECT id, username FROM users WHERE email = ?');
+    $stmt->bind_param('s', $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows === 0) {
         echo json_encode(['success' => false, 'error' => 'Nincs ilyen email cím regisztrálva!']);
-        
+        exit;
     }
 
     $user = $result->fetch_assoc();

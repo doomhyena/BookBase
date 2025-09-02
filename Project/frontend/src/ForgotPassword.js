@@ -9,7 +9,7 @@ export default function ForgotPassword() {
     e.preventDefault();
     
     try {
-        const response = await fetch('/api/forgot-password.php', {
+  const response = await fetch('http://localhost/BookBase-Dev/Project/backend/forgotpassword.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -20,11 +20,11 @@ export default function ForgotPassword() {
         const result = await response.json();
         
         if (result.success) {
-            setMessage(result.message);
-            // Átirányítás a jelszó módosítás oldalra
-            setTimeout(() => {
-                window.location.href = result.redirect_url || '/reset-password';
-            }, 2000);
+        setMessage(result.message);
+        // Átirányítás a jelszó módosítás oldalra, token átadással
+        setTimeout(() => {
+          window.location.href = result.redirect_url || (`/reset-password?token=${result.token}`);
+        }, 2000);
         } else {
             setMessage(result.message || result.error || 'Hiba történt');
         }

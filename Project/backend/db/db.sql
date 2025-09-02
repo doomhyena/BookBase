@@ -34,13 +34,13 @@ CREATE TABLE IF NOT EXISTS ratings (
     UNIQUE KEY unique_rating (book_id, user_id)
 );
 
--- Olvasási előzmények tábla
-CREATE TABLE IF NOT EXISTS reading_history (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+-- Olvasási státusz tábla (könyv státusz mentéséhez)
+CREATE TABLE reading_history (
     user_id INT NOT NULL,
     book_id INT NOT NULL,
-    read_date DATETIME NOT NULL,
+    status VARCHAR(255) DEFAULT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_id, book_id),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE
 );

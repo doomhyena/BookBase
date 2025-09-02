@@ -41,6 +41,14 @@
                 $like   = "%".$query."%";
                 $params[] = &$like;
                 $params[] = &$like;
+                // Relevancia: előre vesszük, ahol a cím/szerző elején van egyezés
+                $orderByRelevance = " ORDER BY (title LIKE ?) DESC, (author LIKE ?) DESC, $orderBy";
+                $types .= "ss";
+                $startLike = $query."%";
+                $params[] = &$startLike;
+                $params[] = &$startLike;
+            } else {
+                $orderByRelevance = " ORDER BY $orderBy";
             }
 
             if (!empty($category)) {
@@ -53,7 +61,7 @@
                 $sql .= " AND stock > 0";
             }
 
-            $sql .= " GROUP BY title, author, summary, cover, category ORDER BY $orderBy";
+            $sql .= $orderByRelevance;
 
             $stmt = $conn->prepare($sql);
             if ($stmt === false) {

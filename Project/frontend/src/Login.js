@@ -81,7 +81,7 @@ export default function Login() {
         <Link to="/register" className="text-blue-600 hover:underline font-semibold">Regisztrálj!</Link>
       </div>
       <div className="w-full text-center mt-2 text-sm text-gray-600">
-        <Link to="/forgotpass" className="text-blue-600 hover:underline font-semibold">Elfelejtetted a jelszavad?</Link>
+    <Link to="/forgot-password" className="text-blue-600 hover:underline font-semibold">Elfelejtetted a jelszavad?</Link>
       </div>
     </form>
   );

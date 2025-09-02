@@ -1,5 +1,5 @@
 // src/Search.jsx
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const API_BASE = 'http://localhost/BookBase-Dev/Project/backend';
@@ -51,6 +51,17 @@ export default function Search() {
     }
   };
 
+
+  // Debounce keresés gépelés közben
+  const debounceRef = useRef();
+  const handleInputChange = (e) => {
+    setQuery(e.target.value);
+    clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => {
+      fetchBooks({ q: e.target.value });
+    }, 350);
+  };
+
   const handleSearch = (e) => {
     e?.preventDefault();
     fetchBooks();
@@ -66,7 +77,7 @@ export default function Search() {
             <input
               type="text"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={handleInputChange}
               placeholder="Írd be a könyv címét vagy szerzőjét..."
               className="flex-1 px-4 py-3 rounded-xl border-2 border-blue-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none text-base bg-white/90 shadow-md"
             />
@@ -127,10 +138,19 @@ export default function Search() {
                 {books.map(book => (
                   <div key={book.id} className="bg-white rounded-2xl p-6 shadow-lg border border-blue-100 hover:shadow-xl transition-shadow">
                     {book.cover ? (
-                      <img src={book.cover} alt={`${book.title} borítókép`} className="w-full h-48 object-cover rounded-xl mb-4" />
+                      <div className="flex justify-center mb-4">
+                        <img
+                          src={`http://localhost/BookBase-Dev/Project/backend/${book.cover}`}
+                          alt={`${book.title} borítókép`}
+                          style={{ width: '160px', height: '240px', objectFit: 'cover', borderRadius: '1rem', boxShadow: '0 4px 16px rgba(0,0,0,0.10)' }}
+                          className="border border-blue-200"
+                        />
+                      </div>
                     ) : (
-                      <div className="w-full h-48 bg-gray-200 rounded-xl mb-4 flex items-center justify-center">
-                        <span className="text-gray-500">Nincs borítókép</span>
+                      <div className="flex justify-center mb-4">
+                        <div style={{ width: '160px', height: '240px' }} className="bg-gray-200 rounded-xl flex items-center justify-center border border-blue-100">
+                          <span className="text-gray-500">Nincs borítókép</span>
+                        </div>
                       </div>
                     )}
                     <h3 className="text-lg font-bold text-blue-700 mb-2 line-clamp-2">{book.title}</h3>

@@ -49,17 +49,17 @@
             exit;
         }
 
-        $sql = "SELECT id, username, email, birthdate, gender, profile_picture FROM users WHERE id = $id";
+    $sql = "SELECT id, username, email, birthdate, gender, profile_picture, custom_css FROM users WHERE id = $id";
         $res = $conn->query($sql);
         if ($res && $res->num_rows > 0) {
             $user = $res->fetch_assoc();
 
             $user = addProfilePictureUrl($user);
 
-            $historySql = "SELECT b.*, rh.read_date FROM reading_history rh 
+            $historySql = "SELECT b.*, rh.status, rh.created_at FROM reading_history rh 
                         JOIN books b ON rh.book_id = b.id 
                         WHERE rh.user_id = $id 
-                        ORDER BY rh.read_date DESC LIMIT 5";
+                        ORDER BY rh.created_at DESC LIMIT 5";
             $historyRes = $conn->query($historySql);
             $recentlyRead = [];
             if ($historyRes && $historyRes->num_rows > 0) {
@@ -69,7 +69,8 @@
                         'title' => $book['title'],
                         'author' => $book['author'],
                         'cover' => $book['cover'],
-                        'read_date' => $book['read_date']
+                        'status' => $book['status'],
+                        'read_date' => $book['created_at']
                     ];
                 }
             }
@@ -93,6 +94,7 @@
 
             $user['recentlyRead'] = $recentlyRead;
             $user['favorites'] = $favorites;
+            // custom_css is already in $user
 
             $isOwner = (isset($_COOKIE['id']) && $_COOKIE['id'] == $user['id']);
             echo json_encode(['success' => true, 'user' => $user, 'owner' => $isOwner]);
@@ -184,9 +186,10 @@
             exit;
         }
 
-        $email = $_POST['email'] ?? '';
-        $birthdate = $_POST['birthdate'] ?? '';
-        $gender = $_POST['gender'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $birthdate = $_POST['birthdate'] ?? '';
+    $gender = $_POST['gender'] ?? '';
+    $custom_css = $_POST['custom_css'] ?? null;
 
         if (!$email || !$birthdate || !$gender) {
             echo json_encode(['success'=>false,'message'=>'Hiányzó adatok!']);
@@ -220,12 +223,13 @@
         }
 
         // Adatbázis frissítés
-        $updateSql = "UPDATE users SET email='$email', birthdate='$birthdate', gender='$gender'";
-        if($profile_picture_name) $updateSql .= ", profile_picture='$profile_picture_name'";
-        $updateSql .= " WHERE id=$userId";
+    $updateSql = "UPDATE users SET email='$email', birthdate='$birthdate', gender='$gender'";
+    if($profile_picture_name) $updateSql .= ", profile_picture='$profile_picture_name'";
+    if($custom_css !== null) $updateSql .= ", custom_css='" . $conn->real_escape_string($custom_css) . "'";
+    $updateSql .= " WHERE id=$userId";
 
         if($conn->query($updateSql)){
-            $userRes = $conn->query("SELECT id, username, email, birthdate, gender, profile_picture FROM users WHERE id=$userId");
+            $userRes = $conn->query("SELECT id, username, email, birthdate, gender, profile_picture, custom_css FROM users WHERE id=$userId");
             $updatedUser = $userRes->fetch_assoc();
             echo json_encode(['success'=>true,'message'=>'Profil sikeresen frissítve!','user'=>$updatedUser]);
         } else {

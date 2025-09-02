@@ -11,45 +11,41 @@
 
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         echo json_encode(['success' => false, 'error' => 'Csak POST kérés engedélyezett.']);
-        
+        exit;
     }
 
     $input = json_decode(file_get_contents('php://input'), true);
-    $token = $input['token'] ?? '';
+    $email = filter_var(trim($input['email'] ?? ''), FILTER_SANITIZE_EMAIL);
     $newPassword = $input['new_password'] ?? '';
 
-    if (!$token || !$newPassword) {
-        echo json_encode(['success' => false, 'error' => 'Hiányzó token vagy új jelszó.']);
-        
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL) || !$newPassword) {
+        echo json_encode(['success' => false, 'error' => 'Hiányzó vagy érvénytelen email, vagy új jelszó.']);
+        exit;
     }
 
     if (strlen($newPassword) < 6) {
         echo json_encode(['success' => false, 'error' => 'A jelszónak legalább 6 karakter hosszúnak kell lennie.']);
-        
+        exit;
     }
 
-    // Token ellenőrzése
-    $stmt = $conn->prepare('SELECT user_id, expires FROM password_resets WHERE token = ? AND expires > NOW()');
-    $stmt->bind_param('s', $token);
+    $stmt = $conn->prepare('SELECT id FROM users WHERE email = ?');
+    $stmt->bind_param('s', $email);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows === 0) {
-        echo json_encode(['success' => false, 'error' => 'Érvénytelen vagy lejárt token.']);
-        
+        echo json_encode(['success' => false, 'error' => 'Nincs ilyen email cím regisztrálva!']);
+        exit;
     }
 
-    $resetData = $result->fetch_assoc();
-    $userId = $resetData['user_id'];
+    $user = $result->fetch_assoc();
+    $userId = $user['id'];
 
-    // Jelszó frissítése
     $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
     $updateStmt = $conn->prepare('UPDATE users SET password = ? WHERE id = ?');
     $updateStmt->bind_param('si', $hashedPassword, $userId);
 
     if ($updateStmt->execute()) {
-        // Token törlése
-        $conn->query("DELETE FROM password_resets WHERE token = '$token'");
         echo json_encode(['success' => true, 'message' => 'Jelszó sikeresen frissítve!']);
     } else {
         echo json_encode(['success' => false, 'error' => 'Adatbázis hiba: ' . $conn->error]);

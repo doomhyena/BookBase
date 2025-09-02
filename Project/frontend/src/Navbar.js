@@ -66,7 +66,6 @@ export default function Navbar() {
 
       let left = 0;
       if (btnRect.left + ddRect.width > screenWidth - 8) {
-        // ha kilógna jobbra, toljuk balra
         left = screenWidth - 8 - ddRect.width - btnRect.left;
       }
 
@@ -87,7 +86,7 @@ export default function Navbar() {
         <Link to="/community" className="Navbar-link text-white font-semibold px-4 py-2 rounded-lg hover:bg-white/20 transition">Közösség</Link>
         <Link to="/random" className="Navbar-link text-white font-semibold px-4 py-2 rounded-lg hover:bg-white/20 transition">Random</Link>
         {isAdmin && (
-          <Link to="/AdminPanel" className="Navbar-link text-white font-semibold px-4 py-2 rounded-lg hover:bg-white/20 transition">Admin</Link>
+          <Link to="/admin/AdminPanel" className="Navbar-link text-white font-semibold px-4 py-2 rounded-lg hover:bg-white/20 transition">Admin</Link>
         )}
         {userId ? (
           <div className="relative">

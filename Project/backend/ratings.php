@@ -10,9 +10,30 @@
 
     require "db/db.php";
 
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        $book_id = $_GET['book_id'] ?? null;
+        $user_id = $_GET['user_id'] ?? ($_COOKIE['id'] ?? null);
+        if (!$book_id || !$user_id) {
+            echo json_encode(["success" => false, "message" => "Hiányzó adatok!"]);
+            exit;
+        }
+        $sql = "SELECT rating FROM ratings WHERE book_id = ? AND user_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('ii', $book_id, $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            echo json_encode(["success" => true, "rating" => (int)$row['rating']]);
+        } else {
+            echo json_encode(["success" => true, "rating" => 0]);
+        }
+        exit;
+    }
+
     // Csak POST
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         echo json_encode(["success" => false, "message" => "Csak POST metódus engedélyezett!"]);
+        exit;
     }
 
     $input = json_decode(file_get_contents('php://input'), true);
