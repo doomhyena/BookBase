@@ -30,11 +30,9 @@ function Community() {
     };
     fetchUser();
   }, []);
-
   useEffect(() => {
     fetchPosts();
   }, []);
-
   const fetchPosts = async () => {
     setLoading(true);
     try {
@@ -97,7 +95,6 @@ function Community() {
     e.preventDefault();
     const content = commentForms[postId]?.content?.trim();
     if (!content) return;
-
     const author = currentUser?.username || 'Vendég';
     const userId = currentUser?.id > 0 ? currentUser.id : 0;
 
@@ -125,7 +122,6 @@ function Community() {
   return (
     <div className="max-w-3xl mx-auto py-10 px-2 md:px-0">
       <h1 className="text-3xl font-black text-blue-700 mb-8 text-center drop-shadow">Közösségi beszélgetések</h1>
-
       {/* Új bejegyzés */}
       {currentUser && currentUser.id !== 0 ? (
         <form className="bg-white rounded-2xl shadow-lg p-6 flex flex-col gap-4 mb-10" onSubmit={handleSubmit}>
@@ -152,7 +148,6 @@ function Community() {
       ) : (
         <div className="text-center text-red-600 mb-10">Jelentkezz be a posztoláshoz!</div>
       )}
-
       {/* Bejegyzések */}
       <div className="flex flex-col gap-8">
         {posts.map(post => (
@@ -163,7 +158,6 @@ function Community() {
               <span>{new Date(post.date).toLocaleDateString()}</span>
             </div>
             <div className="text-gray-800 mb-4 whitespace-pre-wrap">{post.content}</div>
-
             {/* Kommentek */}
             <div className="space-y-3 mt-4">
               {(comments[post.id] && comments[post.id].length > 0) ? (
@@ -172,9 +166,10 @@ function Community() {
                     {/* Profilkép linkkel */}
                     <Link to={`/user/${comment.user_id}`}>
                       <img
-                        src={comment.profile_picture || "/default-avatar.png"}
-                        alt={comment.author}
-                        className="w-10 h-10 rounded-full object-cover border"
+                        src={comment.profile_picture_url || "/default-avatar.png"}
+                        alt="Profilkép" 
+                        className="object-cover rounded-full"
+                        style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '50%' }}
                       />
                     </Link>
                     <div className="flex-1">
@@ -199,7 +194,6 @@ function Community() {
               ) : (
                 <div className="text-gray-400 text-sm italic">Még nincsenek kommentek.</div>
               )}
-
               {/* Új komment írása */}
               {currentUser && currentUser.id !== 0 ? (
                 <form className="flex flex-col md:flex-row gap-2 mt-3" onSubmit={e => handleCommentSubmit(post.id, e)}>

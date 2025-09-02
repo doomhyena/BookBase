@@ -20,16 +20,27 @@ export default function Navbar() {
 
   // Felhasználói adatok lekérése
   useEffect(() => {
-    if (userId) fetchUserData();
-  }, [userId]);
+    fetchUserData();
+    const unlisten = navigate((location) => {
+      fetchUserData();
+    });
+    return () => {
+      if (unlisten) unlisten();
+    };
+  }, []);
 
   const fetchUserData = async () => {
-    try {
-      const response = await fetch(`http://localhost/BookBase-Dev/Project/backend/userprofile.php?action=getById&id=${userId}`, { credentials: 'include' });
+    try { 
+      const response = await fetch(`http://localhost/BookBase-Dev/Project/backend/userprofile.php?action=getCurrentUser`, { credentials: 'include' });
       const data = await response.json();
-      if (data.success) setIsAdmin(data.user.admin === 1);
+      if (data.success && data.user) {
+        setIsAdmin(String(data.user.admin) === "1");        setUserId(data.user.id);
+      } else {
+        setIsAdmin(false);
+      }
     } catch (error) {
       console.error('Hiba a felhasználói adatok betöltésekor:', error);
+      setIsAdmin(false);
     }
   };
 

@@ -25,7 +25,7 @@
 
         $comments = [];
         $sql = "SELECT c.id, c.content, c.date, 
-                    u.id AS user_id, u.username AS author, u.profile_picture 
+                    u.id AS user_id, u.username AS author, u.profile_picture, u.username
                 FROM community_comments c 
                 JOIN users u ON c.user_id = u.id 
                 WHERE c.post_id = $postId 
@@ -34,6 +34,14 @@
 
         if ($result && $result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+                // kép teljes URL összerakás
+                if (!empty($row['profile_picture']) && !empty($row['username'])) {
+                    $row['profile_picture_url'] =
+                        "http://localhost/BookBase-Dev/Project/backend/users/" .
+                        $row['username'] . "/" . $row['profile_picture'];
+                } else {
+                    $row['profile_picture_url'] = null;
+                }
                 $comments[] = $row;
             }
         }

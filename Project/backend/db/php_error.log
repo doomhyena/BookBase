@@ -171,3 +171,851 @@ Stack trace:
 #0 C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php(53): mysqli->query('INSERT INTO com...')
 #1 {main}
   thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php on line 53
+[30-Aug-2025 18:17:28 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\top20list.php(12): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:17:28 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\randombooks.php(12): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:17:28 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\recommendedbooks.php(12): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:17:28 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\recentlyread.php(11): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:17:32 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php(14): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:17:32 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\recommendedbooks.php(12): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:17:32 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\recentlyread.php(11): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:17:32 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\top20list.php(12): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:17:32 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\randombooks.php(12): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:17:34 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php(14): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:17:34 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\community_posts.php(16): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:17:36 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php(14): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:17:36 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\randombooks.php(12): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:17:36 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\recommendedbooks.php(12): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:17:36 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\recentlyread.php(11): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:17:36 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php:16
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php(16): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'bookbase')
+#1 C:\xampp\htdocs\BookBase-Dev\Project\backend\top20list.php(12): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\db\db.php on line 16
+[30-Aug-2025 18:29:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:29:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:29:04 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:29:04 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:29:04 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:29:04 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:29:05 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:29:05 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:29:05 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:29:05 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:51:34 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:51:34 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:51:34 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:51:34 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:51:35 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:51:35 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:51:35 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:51:35 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:51:42 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:51:42 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:51:43 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:51:43 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:51:43 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 18:51:43 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 19:03:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 19:03:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 19:09:21 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 19:09:21 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 19:09:24 Europe/Berlin] PHP Warning:  Undefined variable $sql in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 28
+[30-Aug-2025 19:09:24 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'GROUP BY title, author, summary, cover, category ORDER BY title ASC AND categ...' at line 1 in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php:52
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php(52): mysqli->prepare(' GROUP BY title...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 52
+[30-Aug-2025 19:09:25 Europe/Berlin] PHP Warning:  Undefined variable $sql in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 28
+[30-Aug-2025 19:09:25 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'GROUP BY title, author, summary, cover, category ORDER BY title ASC ORDER BY ...' at line 1 in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php:52
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php(52): mysqli->prepare(' GROUP BY title...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 52
+[30-Aug-2025 19:09:28 Europe/Berlin] PHP Warning:  Undefined variable $sql in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 28
+[30-Aug-2025 19:09:28 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'GROUP BY title, author, summary, cover, category ORDER BY title DESC ORDER BY...' at line 1 in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php:52
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php(52): mysqli->prepare(' GROUP BY title...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 52
+[30-Aug-2025 19:09:29 Europe/Berlin] PHP Warning:  Undefined variable $sql in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 28
+[30-Aug-2025 19:09:29 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'GROUP BY title, author, summary, cover, category ORDER BY title ASC ORDER BY ...' at line 1 in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php:52
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php(52): mysqli->prepare(' GROUP BY title...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 52
+[30-Aug-2025 19:09:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 19:09:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 19:14:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 19:14:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 19:14:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 19:14:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[30-Aug-2025 19:14:50 Europe/Berlin] PHP Warning:  Undefined variable $sql in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 28
+[30-Aug-2025 19:14:50 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'GROUP BY title, author, summary, cover, category ORDER BY title ASC AND categ...' at line 1 in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php:53
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php(53): mysqli->prepare(' GROUP BY title...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 53
+[01-Sep-2025 21:12:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:12:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:12:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:12:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:12:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:12:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:13:17 Europe/Berlin] PHP Warning:  Undefined variable $sql in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 28
+[01-Sep-2025 21:13:17 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'GROUP BY title, author, summary, cover, category ORDER BY title ASC AND (titl...' at line 1 in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php:53
+Stack trace:
+#0 C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php(53): mysqli->prepare(' GROUP BY title...')
+#1 {main}
+  thrown in C:\xampp\htdocs\BookBase-Dev\Project\backend\search.php on line 53
+[01-Sep-2025 21:14:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:14:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:15:38 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:15:38 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:15:47 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:15:47 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:15:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:15:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:17:40 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:17:40 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:17:41 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:17:41 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:17:42 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:17:42 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:17:42 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:17:42 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:17:45 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:17:45 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:19:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:19:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:19:59 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:19:59 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:20:00 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:20:00 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:20:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:20:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:20:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:20:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:06 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:06 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:06 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:06 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:07 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:07 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:07 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:07 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:08 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:08 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:08 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:08 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:23 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:23 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:24 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:24 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:25 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:25 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:25 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:25 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:31 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:21:31 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:22:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:22:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:22:17 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:22:17 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:22:17 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:22:17 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:22:17 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:22:17 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:23:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:23:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:23:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:23:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:26:00 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:26:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:26:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:26:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:26:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:26:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:26:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:26:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:27:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:27:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:27:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:27:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:50:20 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:50:20 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:50:20 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:50:20 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:51:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:51:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:52:05 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:52:05 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:52:05 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:52:05 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:52:05 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:52:10 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:52:10 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:57:12 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:57:12 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:57:31 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:57:31 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:57:31 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:57:31 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 21:57:31 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:07:21 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:07:21 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:08:07 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:08:07 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:08:15 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:08:15 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:08:18 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:08:18 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:08:23 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:08:23 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:08:33 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:08:33 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:08:33 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:08:33 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:08:33 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:08:33 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:12 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:30 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:30 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:30 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:30 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:35 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:35 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:36 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:36 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:38 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:38 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:10:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:12:38 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:12:38 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:12:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:12:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:12:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:12:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:14:06 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:14:06 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:15:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:15:07 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:15:10 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:15:13 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:15:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:15:42 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:15:42 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:15:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:15:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:15:54 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:15:54 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:24:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:27:57 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:27:57 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:28:34 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:28:34 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:28:34 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:28:34 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:28:34 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:28:34 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:29:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:07 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:07 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:15 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:15 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:16 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:16 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:17 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:17 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:18 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:18 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:57 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:30:57 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:31:12 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:31:12 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:31:13 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:31:13 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:31:13 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:31:13 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:33:07 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:33:10 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:33:18 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:33:37 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:34:11 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:34:11 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:34:19 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:34:19 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:34:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:34:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:34:33 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:34:33 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:34:33 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:34:33 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:36:12 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:39:15 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:39:19 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:39:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:39:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:39:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:39:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:39:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:39:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:40:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:40:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:40:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:40:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:41:45 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:41:45 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:41:47 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:41:47 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:42:25 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:42:31 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:42:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:42:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:42:56 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:42:56 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:43:06 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:43:06 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:43:07 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:43:07 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:43:08 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:43:08 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:43:13 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:43:13 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:43:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:43:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:44:45 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:45:44 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:45:44 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:45:47 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:45:47 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:45:57 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:45:57 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:45:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:45:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:45:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:45:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:48:11 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:48:11 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:48:11 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:48:11 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:50:36 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:50:36 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:50:39 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:50:39 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:50:39 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:50:39 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:54:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:54:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:54:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:54:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:54:30 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:54:30 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:54:30 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:54:30 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:55:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:55:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:55:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:55:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:55:30 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:55:30 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:55:30 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:55:30 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:55:38 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[01-Sep-2025 22:55:38 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:17:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:17:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:18:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:18:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:18:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:18:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:18:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:19:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:19:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:19:57 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:19:57 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:21:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:21:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:21:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:21:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:21:54 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:21:54 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:21:54 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:21:54 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:22:55 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:22:55 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:22:56 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:22:56 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:22:57 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:22:57 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:22:57 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:22:57 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:22:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:22:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:22:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:22:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:21 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:21 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:25 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:25 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:26 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:26 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:26 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:26 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:26 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:26 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:27 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:28 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:29 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:30 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:30 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:40 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:40 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:40 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:40 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:23:40 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:25:40 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:25:40 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:25:40 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:25:40 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:25:41 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:25:41 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:25:41 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:25:41 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:25:42 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:25:42 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:25:42 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:25:42 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:04 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:04 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:04 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:04 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:14 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:14 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:14 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:14 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:15 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:15 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:15 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:15 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:35 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:35 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:46 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:46 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:46 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:46 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:46 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:30:46 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:31:00 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:31:00 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:31:00 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:31:00 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:32:18 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:32:18 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:32:18 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:32:18 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:32:19 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:32:19 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:32:19 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:32:19 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:15 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:15 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:15 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:15 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:16 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:16 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:16 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:16 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:17 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:17 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:17 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:17 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:19 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:19 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:19 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:34:19 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:35:23 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:35:32 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:35:41 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:35:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:46 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:46 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:46 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:46 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:46 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:46 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:46 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:46 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:36:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:42:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:42:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:42:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:42:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:42:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:42:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:42:59 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:42:59 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:48 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:49 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:50 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:51 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:52 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:53 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:54 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:54 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:54 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:54 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:54 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:54 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:54 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:54 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:58 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:59 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:59 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:59 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:44:59 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:16 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:20 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:20 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:20 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:20 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:21 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:21 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:21 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:21 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:21 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:21 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:21 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:22 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:23 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:23 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:23 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:45:23 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:01 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:02 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:03 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:04 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:04 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:04 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16
+[02-Sep-2025 16:46:04 Europe/Berlin] PHP Warning:  Undefined variable $action in C:\xampp\htdocs\BookBase-Dev\Project\backend\userprofile.php on line 16

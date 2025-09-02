@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import ProfilKepUpload from './ProfilKepUpload';
+import ProfilKepUpload from './ProfilePictureUpload';
 
 export default function UserProfile() {
   const { id } = useParams();
@@ -10,6 +10,7 @@ export default function UserProfile() {
   const [form, setForm] = useState({});
   const [message, setMessage] = useState('');
   const [file, setFile] = useState(null);
+  const [isOwner, setIsOwner] = useState(false);
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -27,6 +28,7 @@ export default function UserProfile() {
             birthdate: data.user.birthdate || '',
             gender: data.user.gender || ''
           });
+          setIsOwner(!!data.owner);
         }
       } catch (error) {
         console.error(error);
@@ -35,6 +37,9 @@ export default function UserProfile() {
       }
     };
     fetchUserProfile();
+    // Frissítés navigációnál is
+    window.addEventListener('popstate', fetchUserProfile);
+    return () => window.removeEventListener('popstate', fetchUserProfile);
   }, [id]);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
@@ -99,33 +104,50 @@ export default function UserProfile() {
 
         {/* Fejléc */}
         <div className="flex flex-col items-center gap-4">
-          <div className="w-32 h-32 rounded-full bg-gray-200 overflow-hidden shadow-lg">
+          <div className="w-32 h-32 rounded-full bg-gray-200 overflow-hidden shadow-lg flex items-center justify-center">
             {user.profile_picture ? (
-              <img src={user.profile_picture} alt={user.username} className="w-full h-full object-cover" />
+            <img 
+                src={user.profile_picture_url || "/placeholder.png"} 
+                alt="Profilkép" 
+                className="object-cover rounded-full"
+                style={{ width: '128px', height: '128px', objectFit: 'cover', borderRadius: '50%' }}
+              />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-gray-400 font-bold text-xl">Avatar</div>
             )}
           </div>
           <h1 className="text-4xl font-bold text-blue-700">{user.username}</h1>
-          <div className="flex gap-4">
-            <button
-              onClick={() => setEditing(!editing)}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-xl transition">
-              {editing ? 'Mégse' : 'Szerkesztés'}
-            </button>
-          </div>
+          {isOwner && (
+            <div className="flex gap-4">
+              {!editing ? (
+                <button
+                  onClick={() => setEditing(true)}
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-xl transition">
+                  Szerkesztés
+                </button>
+              ) : (
+                <button
+                  onClick={() => setEditing(false)}
+                  className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-6 rounded-xl transition">
+                  Mégse
+                </button>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Alapadatok & form */}
         <div className="bg-white rounded-3xl shadow-2xl p-8">
           {editing ? (
             <form onSubmit={handleSubmit} className="space-y-6">
-              
               {/* Profilkép feltöltés */}
-              <ProfilKepUpload
-                currentPicture={user.profile_picture}
-                onUpload={(selectedFile, previewUrl) => setFile(selectedFile)}
-              />
+              <div className="mb-6">
+                <ProfilKepUpload
+                  currentPicture={user.profile_picture ? (user.profile_picture.startsWith('http') ? user.profile_picture : `/BookBase-Dev/Project/backend/users/${user.username}/${user.profile_picture}`) : null}
+                  onUpload={file => setFile(file)}
+                  noForm={true}
+                />
+              </div>
 
               <div>
                 <label className="block text-gray-700 text-sm font-bold mb-2">Email cím</label>
@@ -152,9 +174,17 @@ export default function UserProfile() {
                   </select>
                 </div>
               </div>
-
               {message && <div className={`p-4 rounded-lg ${message.includes('sikeresen') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>{message}</div>}
-              <button type="submit" className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl transition">Mentés</button>
+              <div className="flex justify-end w-full mt-6">
+
+                {/* 🔥 Itt lesz a Mentés gomb */}
+                <button
+                  type="submit"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-xl"
+                >
+                  Mentés
+                </button>                
+              </div>
             </form>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

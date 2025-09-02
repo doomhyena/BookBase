@@ -13,14 +13,25 @@
 
     require "db/db.php";
 
-    // --- GET Current User ---
+    function addProfilePictureUrl($user) {
+        if (!empty($user['username']) && !empty($user['profile_picture'])) {
+            $user['profile_picture_url'] =
+                "http://localhost/BookBase-Dev/Project/backend/users/" .
+                $user['username'] . "/" . $user['profile_picture'];
+        } else {
+            $user['profile_picture_url'] = null;
+        }
+        return $user;
+    }
+
     if (isset($_GET['action']) && $_GET['action'] === 'getCurrentUser') {
         if (isset($_COOKIE['id']) && $_COOKIE['id']) {
             $userId = intval($_COOKIE['id']);
-            $sql = "SELECT id, username, email, profile_picture FROM users WHERE id = $userId LIMIT 1";
+            $sql = "SELECT id, username, email, profile_picture, admin FROM users WHERE id = $userId LIMIT 1";
             $res = $conn->query($sql);
             if ($res && $res->num_rows > 0) {
                 $user = $res->fetch_assoc();
+                $user = addProfilePictureUrl($user);
                 echo json_encode(['success' => true, 'user' => $user]);
             } else {
                 echo json_encode(['success' => false, 'message' => 'Felhasználó nem található!']);
@@ -31,7 +42,6 @@
         exit;
     }
 
-    // --- GET User by ID ---
     if (isset($_GET['action']) && $_GET['action'] === 'getById' && isset($_GET['id'])) {
         $id = intval($_GET['id']);
         if (!$id) {
@@ -44,7 +54,8 @@
         if ($res && $res->num_rows > 0) {
             $user = $res->fetch_assoc();
 
-            // Legutóbb olvasott könyvek
+            $user = addProfilePictureUrl($user);
+
             $historySql = "SELECT b.*, rh.read_date FROM reading_history rh 
                         JOIN books b ON rh.book_id = b.id 
                         WHERE rh.user_id = $id 
@@ -63,7 +74,6 @@
                 }
             }
 
-            // Kedvencek
             $favSql = "SELECT b.* FROM favorites f 
                     JOIN books b ON f.book_id = b.id 
                     WHERE f.user_id = $id 
@@ -84,14 +94,89 @@
             $user['recentlyRead'] = $recentlyRead;
             $user['favorites'] = $favorites;
 
-            echo json_encode(['success' => true, 'user' => $user]);
+            $isOwner = (isset($_COOKIE['id']) && $_COOKIE['id'] == $user['id']);
+            echo json_encode(['success' => true, 'user' => $user, 'owner' => $isOwner]);
         } else {
             echo json_encode(['success' => false, 'message' => 'A felhasználó nem található!']);
         }
         exit;
     }
 
-    // --- UPDATE Profile + Profile Picture ---
+    if (isset($_GET['action']) && $_GET['action'] === 'getCurrentUser') {
+        if (isset($_COOKIE['id']) && $_COOKIE['id']) {
+            $userId = intval($_COOKIE['id']);
+            $sql = "SELECT id, username, email, profile_picture, admin FROM users WHERE id = $userId LIMIT 1";
+            $res = $conn->query($sql);
+            if ($res && $res->num_rows > 0) {
+                $user = $res->fetch_assoc();
+                echo json_encode(['success' => true, 'user' => $user]);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Felhasználó nem található!']);
+            }
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Nincs bejelentkezve']);
+        }
+        exit;
+    }
+
+    if (isset($_GET['action']) && $_GET['action'] === 'getById' && isset($_GET['id'])) {
+        $id = intval($_GET['id']);
+        if (!$id) {
+            echo json_encode(['success' => false, 'message' => 'Érvénytelen felhasználói azonosító!']);
+            exit;
+        }
+
+        $sql = "SELECT id, username, email, birthdate, gender, profile_picture FROM users WHERE id = $id";
+        $res = $conn->query($sql);
+        if ($res && $res->num_rows > 0) {
+            $user = $res->fetch_assoc();
+
+            $historySql = "SELECT b.*, rh.read_date FROM reading_history rh 
+                        JOIN books b ON rh.book_id = b.id 
+                        WHERE rh.user_id = $id 
+                        ORDER BY rh.read_date DESC LIMIT 5";
+            $historyRes = $conn->query($historySql);
+            $recentlyRead = [];
+            if ($historyRes && $historyRes->num_rows > 0) {
+                while ($book = $historyRes->fetch_assoc()) {
+                    $recentlyRead[] = [
+                        'id' => $book['id'],
+                        'title' => $book['title'],
+                        'author' => $book['author'],
+                        'cover' => $book['cover'],
+                        'read_date' => $book['read_date']
+                    ];
+                }
+            }
+
+            $favSql = "SELECT b.* FROM favorites f 
+                    JOIN books b ON f.book_id = b.id 
+                    WHERE f.user_id = $id 
+                    ORDER BY f.created_at DESC LIMIT 5";
+            $favRes = $conn->query($favSql);
+            $favorites = [];
+            if ($favRes && $favRes->num_rows > 0) {
+                while ($book = $favRes->fetch_assoc()) {
+                    $favorites[] = [
+                        'id' => $book['id'],
+                        'title' => $book['title'],
+                        'author' => $book['author'],
+                        'cover' => $book['cover']
+                    ];
+                }
+            }
+
+            $user['recentlyRead'] = $recentlyRead;
+            $user['favorites'] = $favorites;
+
+            $isOwner = (isset($_COOKIE['id']) && $_COOKIE['id'] == $user['id']);
+            echo json_encode(['success' => true, 'user' => $user, 'owner' => $isOwner]);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'A felhasználó nem található!']);
+        }
+        exit;
+    }
+
     if (isset($_GET['action']) && $_GET['action'] === 'updateProfile') {
         $userId = $_COOKIE['id'] ?? null;
         if (!$userId) {
@@ -108,14 +193,12 @@
             exit;
         }
 
-        // Email egyediség
         $res = $conn->query("SELECT id FROM users WHERE email='$email' AND id != $userId");
         if ($res->num_rows > 0) {
             echo json_encode(['success'=>false,'message'=>'Már létezik ilyen email cím!']);
             exit;
         }
 
-        // Profilkép feltöltés
         $profile_picture_name = null;
         if(isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] === 0) {
             $userRes = $conn->query("SELECT username, profile_picture FROM users WHERE id=$userId");
@@ -123,7 +206,6 @@
             $target_dir = __DIR__ . "/users/" . $user['username'] . "/";
             if(!is_dir($target_dir)) mkdir($target_dir, 0777, true);
 
-            // Régi kép törlése
             if(!empty($user['profile_picture'])){
                 $oldFile = $target_dir . $user['profile_picture'];
                 if(file_exists($oldFile)) unlink($oldFile);

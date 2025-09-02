@@ -96,7 +96,14 @@ body {
 	 - 10.2. [Kódolási Konvenciók](#102-kódolási-konvenciók)
 	 - 10.3. [Verziókezelési Stratégia](#103-verziókezelési-stratégia)
 
-11. [Licensz](#11-licensz)
+11. [Jövőbeli Tervek](#11-jövőbeli-tervek)
+	 - 11.1. 
+	 - 11.2. 
+	 - 11.3. 
+	 - 11.4. 
+	 - 11.5. 
+
+12. [Licensz](#12-licensz)
 
 ---
 
@@ -737,6 +744,26 @@ Minden API végpont JSON formátumban ad vissza választ, `success` (boolean) é
 - **Commit üzenetek**: Használjon leíró és konzisztens commit üzeneteket (pl. "feat: Új felhasználói regisztráció implementálása", "fix: Bejelentkezési hiba javítása").
 
 ## 11. Licensz
+
+### 11.1.
+
+
+
+### 11.2.
+
+
+
+### 11.3.
+
+
+
+### 11.4.
+
+
+
+### 11.5.
+
+## 12. Licensz
 
 Ez a projekt saját projektmunkás licensz alatt áll. A forráskód és a dokumentáció kizárólag oktatási célokra használható fel, kereskedelmi felhasználása nem engedélyezett.
 
