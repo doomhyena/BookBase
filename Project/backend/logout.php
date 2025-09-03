@@ -1,10 +1,11 @@
 <?php
-    // CORS beállítások - mindig az elején, mielőtt bármi más történik
-    header_remove();
-    header('Access-Control-Allow-Origin: http://localhost:3000');
-    header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-    header('Access-Control-Allow-Headers: Content-Type');
-    header('Content-Type: application/json');
+    // CORS beállítások – mindig az elején, hogy a frontend böngészője engedélyezze az API hívásokat
+    header_remove(); // Törli az előző HTTP header-eket
+    header('Access-Control-Allow-Origin: http://localhost:3000'); // Csak a frontend oldalról érkező kéréseket engedélyezzük
+    header('Access-Control-Allow-Credentials: true'); // Szükséges a cookie-k küldéséhez
+    header('Access-Control-Allow-Methods: GET, POST, OPTIONS'); // Engedélyezett HTTP metódusok
+    header('Access-Control-Allow-Headers: Content-Type'); // Engedélyezett header-ek
+    header('Content-Type: application/json'); // Minden válasz JSON formátumban lesz
 
     require "db/db.php";
     

@@ -1,7 +1,5 @@
-
---
 -- Tábla szerkezet ehhez a táblához `books`
---
+
 
 CREATE TABLE `books` (
   `id` int(11) NOT NULL,
@@ -13,9 +11,7 @@ CREATE TABLE `books` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
---
 -- A tábla adatainak kiíratása `books`
---
 
 INSERT INTO `books` (`id`, `title`, `author`, `summary`, `cover`, `category`, `created_at`) VALUES
 (1, 'A Gyűrűk Ura', 'J.R.R. Tolkien', 'Egy epikus fantasy regény, amely egy varázsgyűrűről és annak megsemmisítéséért vívott küzdelemről szól.', NULL, 'Fantasy', '2025-09-02 17:56:10'),
@@ -52,11 +48,8 @@ INSERT INTO `books` (`id`, `title`, `author`, `summary`, `cover`, `category`, `c
 (32, 'A Pál utcai fiúk', 'Molnár Ferenc', 'A grundért küzdő fiúk története, amely barátságról és hűségről szól.', NULL, 'Ifjúsági', '2025-09-02 17:56:10'),
 (33, 'Ember tragédiája', 'Madách Imre', 'Filozofikus dráma az emberiség történetéről és jövőjéről.', NULL, 'Dráma', '2025-09-02 17:56:10');
 
--- --------------------------------------------------------
-
---
 -- Tábla szerkezet ehhez a táblához `community_comments`
---
+
 
 CREATE TABLE `community_comments` (
   `id` int(11) NOT NULL,
@@ -68,18 +61,14 @@ CREATE TABLE `community_comments` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
---
+
 -- A tábla adatainak kiíratása `community_comments`
---
+
 
 INSERT INTO `community_comments` (`id`, `post_id`, `content`, `author`, `user_id`, `date`, `created_at`) VALUES
 (1, 1, 'Szia, jöhetne majd Ádám könyvei ha megjelenik :3', 'profilepictureteszt', 2, '2025-09-02', '2025-09-02 20:33:42');
 
--- --------------------------------------------------------
-
---
 -- Tábla szerkezet ehhez a táblához `community_posts`
---
 
 CREATE TABLE `community_posts` (
   `id` int(11) NOT NULL,
@@ -91,18 +80,13 @@ CREATE TABLE `community_posts` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
---
 -- A tábla adatainak kiíratása `community_posts`
---
 
 INSERT INTO `community_posts` (`id`, `title`, `content`, `author`, `user_id`, `date`, `created_at`) VALUES
 (1, 'Admin vagyok', 'Ki milyen könyvet látna még?', 'csontoskincso05', 1, '2025-09-02', '2025-09-02 17:59:03');
 
--- --------------------------------------------------------
-
---
 -- Tábla szerkezet ehhez a táblához `favorites`
---
+
 
 CREATE TABLE `favorites` (
   `id` int(11) NOT NULL,
@@ -111,11 +95,7 @@ CREATE TABLE `favorites` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
--- --------------------------------------------------------
-
---
 -- Tábla szerkezet ehhez a táblához `password_resets`
---
 
 CREATE TABLE `password_resets` (
   `id` int(11) NOT NULL,
@@ -124,9 +104,7 @@ CREATE TABLE `password_resets` (
   `expires` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
---
 -- A tábla adatainak kiíratása `password_resets`
---
 
 INSERT INTO `password_resets` (`id`, `user_id`, `token`, `expires`) VALUES
 (1, 2, 'a9f25970cc4a3e349e807fdbbe8db5812e5d0c898d385dc458dd509c4a0c5fdb', '2025-09-02 23:16:57'),
@@ -134,11 +112,7 @@ INSERT INTO `password_resets` (`id`, `user_id`, `token`, `expires`) VALUES
 (3, 2, '7a10b453ccaa0dd94512c341dedd0d59cc3f833aacb62fc0c1ffe4b0030e47e5', '2025-09-02 23:19:15'),
 (4, 2, '56121753c248b16f63ac61d12fbe86bc13f5a0832dadea83f58129df7afdf42c', '2025-09-02 23:26:08');
 
--- --------------------------------------------------------
-
---
 -- Tábla szerkezet ehhez a táblához `ratings`
---
 
 CREATE TABLE `ratings` (
   `id` int(11) NOT NULL,
@@ -148,9 +122,7 @@ CREATE TABLE `ratings` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
---
 -- A tábla adatainak kiíratása `ratings`
---
 
 INSERT INTO `ratings` (`id`, `book_id`, `user_id`, `rating`, `created_at`) VALUES
 (1, 33, 1, 5, '2025-09-02 18:12:51'),
@@ -159,11 +131,7 @@ INSERT INTO `ratings` (`id`, `book_id`, `user_id`, `rating`, `created_at`) VALUE
 (9, 2, 1, 5, '2025-09-02 19:19:36'),
 (11, 21, 1, 5, '2025-09-02 19:24:20');
 
--- --------------------------------------------------------
-
---
 -- Tábla szerkezet ehhez a táblához `reading_history`
---
 
 CREATE TABLE `reading_history` (
   `user_id` int(11) NOT NULL,
@@ -172,18 +140,12 @@ CREATE TABLE `reading_history` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
---
 -- A tábla adatainak kiíratása `reading_history`
---
 
 INSERT INTO `reading_history` (`user_id`, `book_id`, `status`, `created_at`) VALUES
 (1, 33, 'Befejeztem', '2025-09-02 19:47:18');
 
--- --------------------------------------------------------
-
---
 -- Tábla szerkezet ehhez a táblához `users`
---
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
@@ -198,156 +160,135 @@ CREATE TABLE `users` (
   `custom_css` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
---
 -- A tábla adatainak kiíratása `users`
---
 
 INSERT INTO `users` (`id`, `username`, `birthdate`, `gender`, `email`, `password`, `profile_picture`, `admin`, `created_at`, `custom_css`) VALUES
 (1, 'csontoskincso05', '2005-04-04', 'no', 'csontoskincso05@proton.me', '$2y$10$0ujZ1SIircp7gIO48SNxluz833r.MzNJ5q9EshpxD0K0QXmwx6kVC', 'doomhyena_logo_version_github_3.png', 1, '2025-09-02 17:57:40', NULL),
 (2, 'profilepictureteszt', '2010-10-22', 'ferfi', 'profilepictureteszt@gmail.com', '$2y$10$TdAyQlS87no8q02K5Xwrme4xZJRllPijt/Ap9Fy3K6E97NaOnvH5O', '3821-spiderman.png', 0, '2025-09-02 20:11:38', 'h1 { color: red; }\r\n.card { background: pink; }');
 
---
 -- Indexek a kiírt táblákhoz
---
 
---
 -- A tábla indexei `books`
---
+
 ALTER TABLE `books`
   ADD PRIMARY KEY (`id`);
 
---
 -- A tábla indexei `community_comments`
---
+
 ALTER TABLE `community_comments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `post_id` (`post_id`),
   ADD KEY `user_id` (`user_id`);
 
---
+
 -- A tábla indexei `community_posts`
---
 ALTER TABLE `community_posts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
---
 -- A tábla indexei `favorites`
---
+
 ALTER TABLE `favorites`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `unique_favorite` (`user_id`,`book_id`),
   ADD KEY `book_id` (`book_id`);
 
---
 -- A tábla indexei `password_resets`
---
+
 ALTER TABLE `password_resets`
   ADD PRIMARY KEY (`id`);
 
---
+
 -- A tábla indexei `ratings`
---
+
 ALTER TABLE `ratings`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `unique_rating` (`book_id`,`user_id`),
   ADD KEY `user_id` (`user_id`);
 
---
+
 -- A tábla indexei `reading_history`
---
+
 ALTER TABLE `reading_history`
   ADD PRIMARY KEY (`user_id`,`book_id`),
   ADD KEY `book_id` (`book_id`);
 
---
+
 -- A tábla indexei `users`
---
+
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `email` (`email`);
 
---
--- A kiírt táblák AUTO_INCREMENT értéke
---
 
---
+-- A kiírt táblák AUTO_INCREMENT értéke
+
 -- AUTO_INCREMENT a táblához `books`
---
+
 ALTER TABLE `books`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
---
+
 -- AUTO_INCREMENT a táblához `community_comments`
---
+
 ALTER TABLE `community_comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
 -- AUTO_INCREMENT a táblához `community_posts`
---
+
 ALTER TABLE `community_posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
+
 -- AUTO_INCREMENT a táblához `favorites`
---
+
 ALTER TABLE `favorites`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
 -- AUTO_INCREMENT a táblához `password_resets`
---
+
 ALTER TABLE `password_resets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
 -- AUTO_INCREMENT a táblához `ratings`
---
+
 ALTER TABLE `ratings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
---
 -- AUTO_INCREMENT a táblához `users`
---
+
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
---
 -- Megkötések a kiírt táblákhoz
---
 
---
 -- Megkötések a táblához `community_comments`
---
+
 ALTER TABLE `community_comments`
   ADD CONSTRAINT `community_comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `community_posts` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `community_comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
---
 -- Megkötések a táblához `community_posts`
---
+
 ALTER TABLE `community_posts`
   ADD CONSTRAINT `community_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
---
+
 -- Megkötések a táblához `favorites`
---
+
 ALTER TABLE `favorites`
   ADD CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `favorites_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE;
 
---
 -- Megkötések a táblához `ratings`
---
+
 ALTER TABLE `ratings`
   ADD CONSTRAINT `ratings_ibfk_1` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `ratings_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
---
 -- Megkötések a táblához `reading_history`
---
+
 ALTER TABLE `reading_history`
   ADD CONSTRAINT `reading_history_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `reading_history_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE;
