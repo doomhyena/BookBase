@@ -17,7 +17,7 @@ BookBase egy modern, felhasználóbarát online könyvplatform, amely lehetővé
 - **Fejlesztői környezet:** XAMPP (Apache, MySQL, PHP)
 
 ## Telepítés
-1. Klónozd a repót: `git clone https://github.com/<felhasznalo>/<repo>.git`
+1. Klónozd a repót: `git clone https://github.com/doomhyena/BookBase.git`
 2. Indítsd el a backend-et XAMPP-pal (Apache, MySQL)
 3. Importáld a `db/db.sql`-t a MySQL adatbázisba
 4. Telepítsd a frontend függőségeit:
